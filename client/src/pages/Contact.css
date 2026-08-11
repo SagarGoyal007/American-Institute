@@ -1173,4 +1173,16 @@
         line-height: 21px;
     }
 
+    /* =========================================================
+   FORM VALIDATION ERROR
+========================================================= */
+
+.form-error {
+    color: #dc2626;
+    font-size: 13px;
+    margin: -10px 0 5px;
+    padding: 0;
+    font-weight: 500;
+}
+
 }

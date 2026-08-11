@@ -11,12 +11,44 @@ import {
   FaClock,
 } from "react-icons/fa";
 
-
 function Contact() {
 
   const [sending, setSending] = useState(false);
 
   const [showPopup, setShowPopup] = useState(false);
+
+  // =====================================================
+  // VALIDATION STATES
+  // =====================================================
+
+  const [phoneError, setPhoneError] = useState("");
+
+  const [emailError, setEmailError] = useState("");
+
+
+  // =====================================================
+  // EMAIL VALIDATION
+  // =====================================================
+
+  const validateEmail = (email) => {
+
+    const emailRegex =
+      /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    return emailRegex.test(email);
+
+  };
+
+
+  // =====================================================
+  // PHONE VALIDATION
+  // =====================================================
+
+  const validatePhone = (phone) => {
+
+    return /^[0-9]{10}$/.test(phone);
+
+  };
 
 
   // =====================================================
@@ -27,29 +59,94 @@ function Contact() {
 
     e.preventDefault();
 
-    setSending(true);
 
-
-    // ================= GET FORM DATA =================
+    // ===================================================
+    // GET FORM DATA
+    // ===================================================
 
     const formData = new FormData(e.target);
 
+
+    const name =
+      formData.get("user_name")?.trim();
+
+    const email =
+      formData.get("user_email")?.trim();
+
+    const phone =
+      formData.get("user_phone")?.trim();
+
+    const message =
+      formData.get("message")?.trim();
+
+
+    // ===================================================
+    // RESET PREVIOUS ERRORS
+    // ===================================================
+
+    setPhoneError("");
+    setEmailError("");
+
+
+    // ===================================================
+    // EMAIL VALIDATION
+    // ===================================================
+
+    if (!validateEmail(email)) {
+
+      setEmailError(
+        "Please enter a valid email address."
+      );
+
+      return;
+
+    }
+
+
+    // ===================================================
+    // PHONE VALIDATION
+    // ===================================================
+
+    if (!validatePhone(phone)) {
+
+      setPhoneError(
+        "Please enter a valid 10-digit phone number."
+      );
+
+      return;
+
+    }
+
+
+    // ===================================================
+    // START SENDING
+    // ===================================================
+
+    setSending(true);
+
+
+    // ===================================================
+    // DATA TO BACKEND
+    // ===================================================
+
     const data = {
 
-      name: formData.get("user_name"),
+      name: name,
 
-      email: formData.get("user_email"),
+      email: email,
 
-      phone: formData.get("user_phone"),
+      phone: phone,
 
-      message: formData.get("message"),
+      message: message,
 
     };
 
 
     try {
 
-      // ================= SEND TO BACKEND =================
+      // =================================================
+      // SEND TO BACKEND
+      // =================================================
 
       const response = await fetch(
         "http://localhost:5000/api/contact",
@@ -61,27 +158,42 @@ function Contact() {
           },
 
           body: JSON.stringify(data),
+
         }
       );
 
 
-      const result = await response.json();
+      // =================================================
+      // GET RESPONSE
+      // =================================================
+
+      const result =
+        await response.json();
 
 
-      // ================= ERROR CHECK =================
+      // =================================================
+      // ERROR CHECK
+      // =================================================
 
       if (!response.ok) {
 
         throw new Error(
-          result.message || "Something went wrong"
+          result.message ||
+          "Something went wrong"
         );
 
       }
 
 
-      // ================= SUCCESS =================
+      // =================================================
+      // SUCCESS
+      // =================================================
 
       e.target.reset();
+
+      setPhoneError("");
+
+      setEmailError("");
 
       setSending(false);
 
@@ -100,6 +212,79 @@ function Contact() {
       alert(
         "Message could not be sent. Please try again."
       );
+
+    }
+
+  };
+
+
+  // =====================================================
+  // PHONE INPUT HANDLER
+  // =====================================================
+
+  const handlePhoneChange = (e) => {
+
+    // Sirf numbers allow karo
+    let value =
+      e.target.value.replace(/\D/g, "");
+
+
+    // Maximum 10 digits
+    value =
+      value.slice(0, 10);
+
+
+    e.target.value = value;
+
+
+    // Error clear karo jab valid ho
+    if (value.length === 10) {
+
+      setPhoneError("");
+
+    } else if (value.length > 0) {
+
+      setPhoneError(
+        "Phone number must contain 10 digits."
+      );
+
+    } else {
+
+      setPhoneError("");
+
+    }
+
+  };
+
+
+  // =====================================================
+  // EMAIL INPUT HANDLER
+  // =====================================================
+
+  const handleEmailChange = (e) => {
+
+    const value =
+      e.target.value.trim();
+
+
+    if (value.length === 0) {
+
+      setEmailError("");
+
+      return;
+
+    }
+
+
+    if (!validateEmail(value)) {
+
+      setEmailError(
+        "Please enter a valid email address."
+      );
+
+    } else {
+
+      setEmailError("");
 
     }
 
@@ -279,6 +464,7 @@ function Contact() {
                 name="user_name"
                 placeholder="Your Name"
                 required
+                maxLength={60}
               />
 
 
@@ -289,7 +475,20 @@ function Contact() {
                 name="user_email"
                 placeholder="Your Email"
                 required
+                maxLength={100}
+                onChange={handleEmailChange}
               />
+
+
+              {/* ================= EMAIL ERROR ================= */}
+
+              {emailError && (
+
+                <p className="form-error">
+                  {emailError}
+                </p>
+
+              )}
 
 
               {/* ================= PHONE ================= */}
@@ -299,7 +498,21 @@ function Contact() {
                 name="user_phone"
                 placeholder="Phone Number"
                 required
+                inputMode="numeric"
+                maxLength={10}
+                onInput={handlePhoneChange}
               />
+
+
+              {/* ================= PHONE ERROR ================= */}
+
+              {phoneError && (
+
+                <p className="form-error">
+                  {phoneError}
+                </p>
+
+              )}
 
 
               {/* ================= MESSAGE ================= */}
@@ -309,6 +522,7 @@ function Contact() {
                 rows="6"
                 placeholder="Write Your Message..."
                 required
+                maxLength={1000}
               ></textarea>
 
 
@@ -361,12 +575,16 @@ function Contact() {
 
           <div
             className="success-overlay"
-            onClick={() => setShowPopup(false)}
+            onClick={() =>
+              setShowPopup(false)
+            }
           >
 
             <div
               className="success-popup"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) =>
+                e.stopPropagation()
+              }
             >
 
 
@@ -374,7 +592,9 @@ function Contact() {
 
               <button
                 className="popup-close"
-                onClick={() => setShowPopup(false)}
+                onClick={() =>
+                  setShowPopup(false)
+                }
                 aria-label="Close"
               >
                 ×
@@ -405,7 +625,9 @@ function Contact() {
 
               <button
                 className="popup-ok"
-                onClick={() => setShowPopup(false)}
+                onClick={() =>
+                  setShowPopup(false)
+                }
               >
                 OK
               </button>
@@ -430,6 +652,5 @@ function Contact() {
   );
 
 }
-
 
 export default Contact;
