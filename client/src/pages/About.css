@@ -1,0 +1,1494 @@
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.about-page {
+    width: 100%;
+    background: #f8f9fc;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.about-header {
+    background:
+        linear-gradient(
+            rgba(0, 51, 102, 0.88),
+            rgba(0, 51, 102, 0.88)
+        ),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+    text-align: center;
+
+    padding: 55px 20px;
+
+    box-sizing: border-box;
+}
+
+.about-header h1 {
+    font-size: 48px;
+    margin: 0 0 12px;
+    line-height: 1.2;
+}
+
+.about-header p {
+    font-size: 20px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ABOUT CONTENT
+========================================================= */
+
+.about-content {
+    width: 90%;
+    max-width: 1250px;
+
+    margin: 70px auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 55px;
+
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ABOUT IMAGE
+========================================================= */
+
+.about-image {
+    width: 100%;
+}
+
+.about-image img {
+    width: 100%;
+
+    height: 430px;
+
+    display: block;
+
+    border-radius: 20px;
+
+    object-fit: cover;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   ABOUT TEXT
+========================================================= */
+
+.about-text {
+    width: 100%;
+}
+
+.about-tag {
+    display: inline-block;
+
+    background: #FFD700;
+
+    color: #003366;
+
+    padding: 9px 20px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+}
+
+.about-text h2 {
+    color: #003366;
+
+    font-size: 44px;
+
+    margin: 0 0 18px;
+
+    line-height: 1.2;
+}
+
+.about-text p {
+    color: #555;
+
+    font-size: 17px;
+
+    line-height: 30px;
+
+    margin: 0 0 18px;
+}
+
+
+/* =========================================================
+   EXPLORE BUTTON
+========================================================= */
+
+.explore-btn {
+    display: inline-block;
+
+    background: #003366;
+
+    color: white;
+
+    padding: 14px 30px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+    margin-top: 5px;
+}
+
+.explore-btn:hover {
+    background: #0055aa;
+
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 18px rgba(0, 51, 102, 0.2);
+}
+
+
+/* =========================================================
+   HEAD OF INSTITUTE
+========================================================= */
+
+.head-section {
+    width: 90%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 30px 0 70px;
+
+    box-sizing: border-box;
+}
+
+.head-card {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 45px;
+
+    display: grid;
+
+    grid-template-columns: 330px 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.head-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 6px;
+    height: 100%;
+
+    background: #FFD700;
+}
+
+
+/* =========================================================
+   HEAD IMAGE
+========================================================= */
+
+.head-image-wrapper {
+    width: 300px;
+    height: 300px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: auto;
+}
+
+.head-image-circle {
+    width: 270px;
+    height: 270px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 6px solid #003366;
+
+    outline: 4px solid #FFD700;
+
+    background: #f5f7fb;
+
+    box-sizing: border-box;
+}
+
+.head-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.head-experience {
+    position: absolute;
+
+    right: 0;
+    bottom: 20px;
+
+    background: #003366;
+
+    color: #FFD700;
+
+    border: 3px solid #FFD700;
+
+    padding: 10px 15px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   HEAD DETAILS
+========================================================= */
+
+.head-details {
+    width: 100%;
+}
+
+.head-tag {
+    display: inline-block;
+
+    background: #FFD700;
+
+    color: #003366;
+
+    padding: 7px 16px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+}
+
+.head-details h2 {
+    color: #003366;
+
+    font-size: 38px;
+
+    margin: 0 0 8px;
+
+    line-height: 1.2;
+}
+
+.head-details h3 {
+    color: #003366;
+
+    font-size: 24px;
+
+    margin: 0 0 5px;
+}
+
+.head-designation {
+    color: #666 !important;
+
+    font-size: 15px !important;
+
+    line-height: 24px !important;
+
+    margin-bottom: 18px !important;
+}
+
+.head-details > p {
+    color: #555;
+
+    font-size: 16px;
+
+    line-height: 28px;
+
+    margin: 0 0 15px;
+}
+
+
+/* =========================================================
+   HEAD HIGHLIGHTS
+========================================================= */
+
+.head-highlights {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.head-highlight {
+    background: #f5f7fb;
+
+    padding: 15px 10px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    border-bottom: 3px solid #FFD700;
+
+    box-sizing: border-box;
+}
+
+.head-highlight strong {
+    display: block;
+
+    color: #003366;
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+.head-highlight span {
+    display: block;
+
+    color: #666;
+
+    font-size: 12px;
+
+    line-height: 17px;
+}
+
+
+/* =========================================================
+   COMMON SECTIONS
+========================================================= */
+
+.why,
+.branches,
+.mission {
+    width: 90%;
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 65px 0;
+
+    box-sizing: border-box;
+}
+
+.why h2,
+.branches h2,
+.mission h2 {
+    text-align: center;
+
+    color: #003366;
+
+    font-size: 38px;
+
+    margin: 0 0 35px;
+
+    line-height: 1.2;
+}
+
+.why h2::after,
+.branches h2::after {
+    content: "";
+
+    width: 70px;
+    height: 4px;
+
+    background: #FFD700;
+
+    display: block;
+
+    margin: 14px auto 0;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   WHY CHOOSE
+========================================================= */
+
+.why-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.why-grid div {
+    background: white;
+
+    padding: 20px 15px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    font-weight: 600;
+
+    color: #003366;
+
+    transition: 0.3s;
+
+    box-sizing: border-box;
+
+    line-height: 24px;
+}
+
+.why-grid div:hover {
+    background: #003366;
+
+    color: white;
+
+    transform: translateY(-6px);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    width: 90%;
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    padding-bottom: 65px;
+
+    box-sizing: border-box;
+}
+
+.stat-box {
+    background: #003366;
+
+    color: white;
+
+    padding: 30px 20px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+.stat-box h2 {
+    font-size: 40px;
+
+    color: #FFD700;
+
+    margin: 0 0 8px;
+}
+
+.stat-box p {
+    margin: 0;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   OUR BRANCHES - DESKTOP
+========================================================= */
+
+.branches {
+    width: 90%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 65px 0;
+
+    box-sizing: border-box;
+}
+
+
+/* IMPORTANT:
+   Specific selector so other .branch-grid CSS
+   does not interfere.
+*/
+
+.branches .branch-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    box-sizing: border-box;
+}
+
+.branches .branch-grid > div {
+    width: 100%;
+
+    min-height: 65px;
+
+    background: white;
+
+    padding: 18px 15px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: #003366;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.branches .branch-grid > div:hover {
+    background: #003366;
+
+    color: white;
+
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   MISSION & VISION
+========================================================= */
+
+.mission {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.mission div {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+}
+
+.mission div h2 {
+    text-align: left;
+
+    margin-bottom: 15px;
+
+    font-size: 28px;
+}
+
+.mission p {
+    color: #555;
+
+    line-height: 29px;
+
+    margin: 0;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .about-header {
+        padding: 50px 20px;
+    }
+
+    .about-header h1 {
+        font-size: 42px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        margin: 55px auto;
+    }
+
+    .about-image {
+        max-width: 700px;
+
+        margin: auto;
+    }
+
+    .about-image img {
+        height: 380px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .about-text p {
+        max-width: 850px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* HEAD */
+
+    .head-card {
+        grid-template-columns: 260px 1fr;
+
+        gap: 35px;
+
+        padding: 35px;
+    }
+
+    .head-image-wrapper {
+        width: 240px;
+        height: 240px;
+    }
+
+    .head-image-circle {
+        width: 215px;
+        height: 215px;
+    }
+
+    .head-details h2 {
+        font-size: 32px;
+    }
+
+
+    /* WHY */
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* STATS */
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* BRANCHES */
+
+    .branches .branch-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* MISSION */
+
+    .mission {
+        grid-template-columns: 1fr;
+    }
+
+    .mission div h2 {
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .about-header {
+        padding: 42px 15px;
+    }
+
+    .about-header h1 {
+        font-size: 34px;
+
+        margin-bottom: 10px;
+    }
+
+    .about-header p {
+        font-size: 17px;
+
+        line-height: 25px;
+    }
+
+
+    /* =====================================================
+       ABOUT
+    ===================================================== */
+
+    .about-content {
+        width: 92%;
+
+        margin: 40px auto;
+
+        gap: 30px;
+    }
+
+    .about-image img {
+        height: 280px;
+
+        border-radius: 16px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .about-tag {
+        padding: 7px 16px;
+
+        font-size: 12px;
+
+        margin-bottom: 12px;
+    }
+
+    .about-text h2 {
+        font-size: 31px;
+
+        margin-bottom: 14px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+
+        line-height: 27px;
+
+        margin-bottom: 15px;
+    }
+
+    .explore-btn {
+        padding: 13px 24px;
+
+        font-size: 15px;
+    }
+
+
+    /* =====================================================
+       HEAD OF INSTITUTE
+    ===================================================== */
+
+    .head-section {
+        width: 92%;
+
+        margin: 0 auto;
+
+        padding: 15px 0 45px;
+    }
+
+    .head-card {
+        width: 100%;
+
+        padding: 22px 16px;
+
+        border-radius: 18px;
+
+        display: grid;
+
+        grid-template-columns: 135px minmax(0, 1fr);
+
+        gap: 18px;
+
+        align-items: center;
+
+        box-sizing: border-box;
+    }
+
+    .head-card::before {
+        width: 4px;
+    }
+
+
+    /* IMAGE */
+
+    .head-image-wrapper {
+        width: 130px;
+
+        height: 130px;
+
+        margin: auto;
+    }
+
+    .head-image-circle {
+        width: 120px;
+
+        height: 120px;
+
+        border-width: 4px;
+
+        outline-width: 2px;
+    }
+
+    .head-experience {
+        right: -5px;
+
+        bottom: 0;
+
+        padding: 6px 9px;
+
+        font-size: 9px;
+
+        border-width: 2px;
+    }
+
+
+    /* DETAILS */
+
+    .head-details {
+        width: 100%;
+
+        text-align: left;
+
+        min-width: 0;
+    }
+
+    .head-tag {
+        font-size: 9px;
+
+        padding: 5px 10px;
+
+        margin-bottom: 7px;
+
+        letter-spacing: 0.7px;
+    }
+
+    .head-details h2 {
+        font-size: 21px;
+
+        line-height: 1.2;
+
+        margin: 0 0 5px;
+    }
+
+    .head-details h3 {
+        font-size: 17px;
+
+        line-height: 1.25;
+
+        margin: 0 0 4px;
+    }
+
+    .head-designation {
+        font-size: 10px !important;
+
+        line-height: 15px !important;
+
+        margin-bottom: 7px !important;
+    }
+
+    .head-details > p {
+        font-size: 12px;
+
+        line-height: 18px;
+
+        margin-bottom: 6px;
+    }
+
+
+    /* HEAD HIGHLIGHTS */
+
+    .head-highlights {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 5px;
+
+        margin-top: 10px;
+    }
+
+    .head-highlight {
+        min-width: 0;
+
+        padding: 7px 3px;
+
+        border-left: 2px solid #FFD700;
+
+        border-bottom: none;
+
+        border-radius: 7px;
+
+        text-align: center;
+
+        background: #f5f7fb;
+    }
+
+    .head-highlight strong {
+        font-size: 13px;
+
+        margin-bottom: 2px;
+    }
+
+    .head-highlight span {
+        font-size: 8px;
+
+        line-height: 10px;
+    }
+
+
+    /* =====================================================
+       WHY CHOOSE
+    ===================================================== */
+
+    .why {
+        width: 92%;
+
+        padding: 45px 0;
+    }
+
+    .why h2 {
+        font-size: 30px;
+
+        margin-bottom: 28px;
+    }
+
+    .why-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .why-grid div {
+        padding: 16px 8px;
+
+        font-size: 13px;
+
+        line-height: 20px;
+
+        min-height: 65px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+    }
+
+
+    /* =====================================================
+       STATS
+    ===================================================== */
+
+    .stats {
+        width: 92%;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+        padding-bottom: 35px;
+    }
+
+    .stat-box {
+        padding: 22px 10px;
+
+        border-radius: 10px;
+    }
+
+    .stat-box h2 {
+        font-size: 32px;
+
+        margin-bottom: 5px;
+    }
+
+    .stat-box p {
+        font-size: 13px;
+
+        line-height: 18px;
+    }
+
+
+    /* =====================================================
+       OUR BRANCHES
+       EXACT 2 COLUMN MOBILE LAYOUT
+    ===================================================== */
+
+    .branches {
+        width: 92%;
+
+        margin: 0 auto;
+
+        padding: 40px 0;
+
+        box-sizing: border-box;
+    }
+
+    .branches h2 {
+        font-size: 30px;
+
+        margin: 0 0 28px;
+
+        text-align: center;
+    }
+
+    .branches .branch-grid {
+        width: 100%;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 10px !important;
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+
+        box-sizing: border-box;
+    }
+
+    .branches .branch-grid > div {
+        width: 100% !important;
+
+        height: 64px !important;
+
+        min-height: 64px !important;
+
+        max-height: 64px !important;
+
+        margin: 0 !important;
+
+        padding: 10px 5px !important;
+
+        background: #ffffff;
+
+        border-radius: 10px;
+
+        font-size: 13px;
+
+        font-weight: 600;
+
+        line-height: 17px;
+
+        color: #003366;
+
+        text-align: center;
+
+        display: flex !important;
+
+        justify-content: center !important;
+
+        align-items: center !important;
+
+        box-sizing: border-box;
+
+        box-shadow:
+            0 5px 15px rgba(0, 0, 0, 0.07);
+
+        overflow: hidden;
+    }
+
+    .branches .branch-grid > div:hover {
+        background: #003366;
+
+        color: white;
+
+        transform: translateY(-3px);
+    }
+
+
+    /* =====================================================
+       MISSION
+    ===================================================== */
+
+    .mission {
+        width: 92%;
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        padding: 40px 0;
+    }
+
+    .mission div {
+        padding: 25px 20px;
+
+        border-radius: 12px;
+    }
+
+    .mission div h2 {
+        font-size: 25px;
+
+        margin-bottom: 10px;
+
+        text-align: center;
+    }
+
+    .mission p {
+        font-size: 15px;
+
+        line-height: 25px;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .about-header {
+        padding: 38px 12px;
+    }
+
+    .about-header h1 {
+        font-size: 30px;
+    }
+
+    .about-header p {
+        font-size: 15px;
+
+        line-height: 23px;
+    }
+
+
+    /* ABOUT */
+
+    .about-content {
+        width: 93%;
+
+        margin: 35px auto;
+
+        gap: 25px;
+    }
+
+    .about-image img {
+        height: 240px;
+    }
+
+    .about-text h2 {
+        font-size: 28px;
+    }
+
+    .about-text p {
+        font-size: 15px;
+
+        line-height: 25px;
+    }
+
+    .explore-btn {
+        padding: 12px 20px;
+
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       HEAD
+    ===================================================== */
+
+    .head-section {
+        width: 93%;
+
+        padding-bottom: 35px;
+    }
+
+    .head-card {
+        padding: 18px 10px;
+
+        grid-template-columns: 110px minmax(0, 1fr);
+
+        gap: 12px;
+
+        border-radius: 15px;
+    }
+
+    .head-image-wrapper {
+        width: 105px;
+
+        height: 105px;
+    }
+
+    .head-image-circle {
+        width: 98px;
+
+        height: 98px;
+
+        border-width: 3px;
+
+        outline-width: 2px;
+    }
+
+    .head-experience {
+        right: -6px;
+
+        bottom: 0;
+
+        padding: 5px 7px;
+
+        font-size: 8px;
+    }
+
+    .head-tag {
+        font-size: 8px;
+
+        padding: 4px 8px;
+    }
+
+    .head-details h2 {
+        font-size: 18px;
+    }
+
+    .head-details h3 {
+        font-size: 15px;
+    }
+
+    .head-designation {
+        font-size: 9px !important;
+
+        line-height: 13px !important;
+    }
+
+    .head-details > p {
+        font-size: 10px;
+
+        line-height: 15px;
+
+        margin-bottom: 5px;
+    }
+
+    .head-highlights {
+        gap: 4px;
+
+        margin-top: 7px;
+    }
+
+    .head-highlight {
+        padding: 6px 2px;
+    }
+
+    .head-highlight strong {
+        font-size: 11px;
+    }
+
+    .head-highlight span {
+        font-size: 7px;
+
+        line-height: 9px;
+    }
+
+
+    /* =====================================================
+       WHY CHOOSE
+    ===================================================== */
+
+    .why {
+        width: 93%;
+
+        padding: 38px 0;
+    }
+
+    .why h2 {
+        font-size: 27px;
+
+        margin-bottom: 24px;
+    }
+
+    .why-grid {
+        gap: 9px;
+    }
+
+    .why-grid div {
+        padding: 13px 5px;
+
+        font-size: 11px;
+
+        line-height: 17px;
+
+        min-height: 58px;
+    }
+
+
+    /* =====================================================
+       STATS
+    ===================================================== */
+
+    .stats {
+        width: 93%;
+
+        gap: 9px;
+
+        padding-bottom: 25px;
+    }
+
+    .stat-box {
+        padding: 18px 6px;
+    }
+
+    .stat-box h2 {
+        font-size: 28px;
+    }
+
+    .stat-box p {
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       BRANCHES - SMALL MOBILE
+    ===================================================== */
+
+    .branches {
+        width: 93%;
+
+        padding-top: 35px;
+
+        padding-bottom: 35px;
+    }
+
+    .branches h2 {
+        font-size: 27px;
+
+        margin-bottom: 24px;
+    }
+
+    .branches .branch-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 9px !important;
+    }
+
+    .branches .branch-grid > div {
+        height: 58px !important;
+
+        min-height: 58px !important;
+
+        max-height: 58px !important;
+
+        padding: 8px 3px !important;
+
+        font-size: 11px;
+
+        line-height: 15px;
+
+        border-radius: 9px;
+    }
+
+
+    /* =====================================================
+       MISSION
+    ===================================================== */
+
+    .mission {
+        width: 93%;
+
+        gap: 12px;
+    }
+
+    .mission div {
+        padding: 20px 15px;
+    }
+
+    .mission div h2 {
+        font-size: 22px;
+    }
+
+    .mission p {
+        font-size: 14px;
+
+        line-height: 23px;
+    }
+}

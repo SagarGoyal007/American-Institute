@@ -1,0 +1,1176 @@
+/* =========================================================
+   CONTACT PAGE
+========================================================= */
+
+.contact {
+    width: 100%;
+
+    padding: 90px 8%;
+
+    background: #f5f7fb;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.contact-title {
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+.contact-title h1 {
+    font-size: 48px;
+
+    color: #003366;
+
+    margin: 0 0 15px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+.contact-title h1::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+
+    height: 4px;
+
+    background: #FFD700;
+
+    margin: 15px auto 0;
+
+    border-radius: 10px;
+}
+
+.contact-title p {
+    color: #666;
+
+    font-size: 18px;
+
+    margin: 0;
+
+    line-height: 28px;
+}
+
+
+/* =========================================================
+   CONTACT CONTAINER
+========================================================= */
+
+.contact-container {
+    display: grid;
+
+    grid-template-columns: 38% 62%;
+
+    gap: 30px;
+
+    align-items: stretch;
+
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   LEFT CONTACT INFORMATION
+========================================================= */
+
+.contact-info {
+    background: linear-gradient(
+        145deg,
+        #003366,
+        #004b8d
+    );
+
+    color: #fff;
+
+    padding: 32px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .12);
+
+    box-sizing: border-box;
+
+    min-width: 0;
+}
+
+.contact-info h2 {
+    color: #FFD700;
+
+    margin: 0 0 28px;
+
+    font-size: 32px;
+
+    position: relative;
+
+    line-height: 1.2;
+}
+
+.contact-info h2::after {
+    content: "";
+
+    display: block;
+
+    width: 48px;
+
+    height: 3px;
+
+    background: #FFD700;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   INFORMATION CARD
+========================================================= */
+
+.info-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+
+    box-sizing: border-box;
+}
+
+.info-card:last-child {
+    border-bottom: none;
+
+    margin-bottom: 0;
+
+    padding-bottom: 0;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.info-card .icon {
+    width: 46px;
+
+    height: 46px;
+
+    min-width: 46px;
+
+    background: #FFD700;
+
+    color: #003366;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 19px;
+
+    flex-shrink: 0;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, .15);
+}
+
+
+/* =========================================================
+   INFO TEXT
+========================================================= */
+
+.info-card h3 {
+    margin: 0 0 5px;
+
+    color: #FFD700;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+.info-card p {
+    margin: 0;
+
+    color: #f5f5f5;
+
+    line-height: 22px;
+
+    font-size: 14px;
+
+    text-align: left;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   RIGHT CONTACT FORM
+========================================================= */
+
+.contact-form {
+    background: #fff;
+
+    padding: 38px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .08);
+
+    box-sizing: border-box;
+
+    min-width: 0;
+}
+
+.contact-form h2 {
+    color: #003366;
+
+    margin: 0 0 28px;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+.contact-form h2::after {
+    content: "";
+
+    display: block;
+
+    width: 48px;
+
+    height: 3px;
+
+    background: #FFD700;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.contact-form form {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    transition: .3s;
+
+    outline: none;
+
+    background: #fff;
+
+    color: #333;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #777;
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+========================================================= */
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #003366;
+
+    box-shadow:
+        0 0 10px rgba(0, 51, 102, .15);
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.contact-form textarea {
+    resize: vertical;
+
+    min-height: 150px;
+}
+
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
+.contact-form button {
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #003366,
+        #0055aa
+    );
+
+    color: #fff;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .35s;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, .18);
+}
+
+.contact-form button:disabled {
+    opacity: .7;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   GOOGLE MAP
+========================================================= */
+
+.map-section {
+    margin-top: 70px;
+
+    max-width: 1400px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+.map-section h2 {
+    text-align: center;
+
+    font-size: 38px;
+
+    color: #003366;
+
+    margin: 0 0 25px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+.map-section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+
+    height: 4px;
+
+    background: #FFD700;
+
+    margin: 12px auto 0;
+
+    border-radius: 10px;
+}
+
+.map-section iframe {
+    width: 100%;
+
+    height: 450px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .12);
+
+    display: block;
+}
+
+
+/* =========================================================
+   SUCCESS POPUP OVERLAY
+========================================================= */
+
+.success-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0, 0, 0, .65);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 99999;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    animation: popupOverlay .25s ease;
+}
+
+
+/* =========================================================
+   SUCCESS POPUP
+========================================================= */
+
+.success-popup {
+    width: 100%;
+
+    max-width: 450px;
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    padding: 40px 35px 35px;
+
+    text-align: center;
+
+    position: relative;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .3);
+
+    box-sizing: border-box;
+
+    animation: popupOpen .3s ease;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.popup-close {
+    position: absolute;
+
+    top: 15px;
+
+    right: 18px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    background: #f1f3f5;
+
+    color: #555;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    line-height: 30px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.popup-close:hover {
+    background: #003366;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   SUCCESS ICON
+========================================================= */
+
+.success-icon {
+    width: 75px;
+
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #e9f8ee;
+
+    color: #18a957;
+
+    border: 3px solid #18a957;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 42px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   POPUP TEXT
+========================================================= */
+
+.success-popup h2 {
+    color: #003366;
+
+    font-size: 30px;
+
+    margin: 0 0 12px;
+}
+
+.success-popup p {
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 26px;
+
+    margin: 0 auto 25px;
+
+    max-width: 360px;
+}
+
+
+/* =========================================================
+   POPUP OK BUTTON
+========================================================= */
+
+.popup-ok {
+    width: 160px !important;
+
+    padding: 12px 25px !important;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #003366,
+        #0055aa
+    );
+
+    color: #fff;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.popup-ok:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 51, 102, .25);
+}
+
+
+/* =========================================================
+   POPUP ANIMATION
+========================================================= */
+
+@keyframes popupOverlay {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes popupOpen {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.85)
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .contact {
+        padding: 70px 6%;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .contact-info {
+        order: 1;
+    }
+
+    .contact-form {
+        order: 2;
+    }
+
+    .contact-info {
+        padding: 30px;
+    }
+
+    .contact-form {
+        padding: 32px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .contact {
+        padding: 50px 5%;
+
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       TITLE
+    ===================================================== */
+
+    .contact-title {
+        margin-bottom: 30px;
+    }
+
+    .contact-title h1 {
+        font-size: 34px;
+
+        margin-bottom: 10px;
+    }
+
+    .contact-title h1::after {
+        width: 60px;
+
+        height: 4px;
+
+        margin-top: 10px;
+    }
+
+    .contact-title p {
+        font-size: 15px;
+
+        line-height: 23px;
+
+        max-width: 320px;
+
+        margin: auto;
+    }
+
+
+    /* =====================================================
+       CONTACT CONTAINER
+    ===================================================== */
+
+    .contact-container {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       GET IN TOUCH
+    ===================================================== */
+
+    .contact-info {
+        width: 100%;
+
+        padding: 22px 15px;
+
+        border-radius: 16px;
+
+        box-sizing: border-box;
+    }
+
+    .contact-info h2 {
+        font-size: 25px;
+
+        margin-bottom: 20px;
+
+        text-align: center;
+    }
+
+    .contact-info h2::after {
+        width: 42px;
+
+        margin: 8px auto 0;
+    }
+
+
+    /* =====================================================
+       CONTACT INFO 2 COLUMN
+    ===================================================== */
+
+    .contact-info {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        column-gap: 10px;
+
+        row-gap: 10px;
+    }
+
+    .contact-info h2 {
+        grid-column: 1 / -1;
+    }
+
+    .info-card {
+        margin: 0;
+
+        padding: 12px 8px;
+
+        border: 1px solid rgba(255, 255, 255, .15);
+
+        border-radius: 10px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        gap: 7px;
+
+        text-align: center;
+
+        min-width: 0;
+
+        box-sizing: border-box;
+    }
+
+    .info-card .icon {
+        width: 40px;
+
+        height: 40px;
+
+        min-width: 40px;
+
+        font-size: 16px;
+    }
+
+    .info-card h3 {
+        font-size: 15px;
+
+        margin: 0 0 4px;
+
+        text-align: center;
+    }
+
+    .info-card p {
+        font-size: 11px;
+
+        line-height: 17px;
+
+        text-align: center;
+
+        word-break: break-word;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       CONTACT FORM
+    ===================================================== */
+
+    .contact-form {
+        width: 100%;
+
+        padding: 22px 17px;
+
+        border-radius: 16px;
+
+        box-sizing: border-box;
+    }
+
+    .contact-form h2 {
+        font-size: 25px;
+
+        margin-bottom: 20px;
+
+        text-align: center;
+    }
+
+    .contact-form h2::after {
+        width: 42px;
+
+        margin: 8px auto 0;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+
+        padding: 13px;
+
+        margin-bottom: 14px;
+
+        font-size: 14px;
+
+        border-radius: 9px;
+
+        box-sizing: border-box;
+    }
+
+    .contact-form textarea {
+        min-height: 130px;
+    }
+
+    .contact-form button {
+        padding: 14px;
+
+        font-size: 15px;
+
+        border-radius: 9px;
+    }
+
+
+    /* =====================================================
+       MAP
+    ===================================================== */
+
+    .map-section {
+        margin-top: 45px;
+
+        width: 100%;
+    }
+
+    .map-section h2 {
+        font-size: 27px;
+
+        line-height: 34px;
+
+        margin-bottom: 18px;
+    }
+
+    .map-section h2::after {
+        width: 60px;
+
+        margin-top: 9px;
+    }
+
+    .map-section iframe {
+        width: 100%;
+
+        height: 300px;
+
+        border-radius: 14px;
+    }
+
+
+    /* =====================================================
+       SUCCESS POPUP
+    ===================================================== */
+
+    .success-overlay {
+        padding: 15px;
+    }
+
+    .success-popup {
+        width: 100%;
+
+        max-width: 340px;
+
+        padding: 32px 20px 25px;
+
+        border-radius: 17px;
+    }
+
+    .success-icon {
+        width: 62px;
+
+        height: 62px;
+
+        font-size: 34px;
+
+        margin-bottom: 15px;
+    }
+
+    .success-popup h2 {
+        font-size: 25px;
+
+        margin-bottom: 10px;
+    }
+
+    .success-popup p {
+        font-size: 14px;
+
+        line-height: 22px;
+
+        margin-bottom: 20px;
+    }
+
+    .popup-ok {
+        width: 140px !important;
+
+        padding: 11px 20px !important;
+
+        font-size: 15px;
+    }
+
+    .popup-close {
+        top: 10px;
+
+        right: 12px;
+
+        width: 32px;
+
+        height: 32px;
+
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .contact {
+        padding: 42px 4%;
+    }
+
+
+    /* TITLE */
+
+    .contact-title h1 {
+        font-size: 31px;
+    }
+
+    .contact-title p {
+        font-size: 14px;
+
+        line-height: 21px;
+    }
+
+
+    /* GET IN TOUCH */
+
+    .contact-info {
+        padding: 20px 10px;
+
+        column-gap: 7px;
+
+        row-gap: 7px;
+    }
+
+    .contact-info h2 {
+        font-size: 23px;
+
+        margin-bottom: 16px;
+    }
+
+    .info-card {
+        padding: 10px 5px;
+
+        min-height: 108px;
+    }
+
+    .info-card .icon {
+        width: 36px;
+
+        height: 36px;
+
+        min-width: 36px;
+
+        font-size: 14px;
+    }
+
+    .info-card h3 {
+        font-size: 13px;
+    }
+
+    .info-card p {
+        font-size: 10px;
+
+        line-height: 15px;
+    }
+
+
+    /* FORM */
+
+    .contact-form {
+        padding: 20px 13px;
+    }
+
+    .contact-form h2 {
+        font-size: 23px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+
+        font-size: 13px;
+    }
+
+    .contact-form textarea {
+        min-height: 120px;
+    }
+
+    .contact-form button {
+        padding: 13px;
+
+        font-size: 14px;
+    }
+
+
+    /* MAP */
+
+    .map-section {
+        margin-top: 40px;
+    }
+
+    .map-section h2 {
+        font-size: 24px;
+
+        line-height: 30px;
+    }
+
+    .map-section iframe {
+        height: 260px;
+
+        border-radius: 12px;
+    }
+
+
+    /* POPUP */
+
+    .success-popup {
+        max-width: 310px;
+
+        padding: 30px 17px 23px;
+    }
+
+    .success-popup h2 {
+        font-size: 23px;
+    }
+
+    .success-popup p {
+        font-size: 13px;
+
+        line-height: 21px;
+    }
+
+}

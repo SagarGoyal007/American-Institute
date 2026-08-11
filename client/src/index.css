@@ -1,0 +1,58 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#fff;
+
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+
+    .navbar,
+    .swiper,
+    .swiper-wrapper,
+    .swiper-slide,
+    .course-section,
+    .student-section,
+    .footer {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .course-section,
+    .student-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+}

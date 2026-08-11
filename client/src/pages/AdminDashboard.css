@@ -1,0 +1,1027 @@
+/* =========================================================
+   ADMIN DASHBOARD
+========================================================= */
+
+.admin-dashboard {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    background: #f4f7fb;
+
+    display: flex;
+
+    color: #1d2939;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.admin-sidebar {
+
+    width: 250px;
+
+    min-width: 250px;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #002147,
+            #003b73
+        );
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: sticky;
+
+    top: 0;
+
+    height: 100vh;
+
+    z-index: 100;
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.dashboard-logo {
+
+    padding: 28px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
+
+}
+
+
+.dashboard-logo-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #FFD700;
+
+    color: #003366;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 800;
+
+    font-size: 18px;
+
+}
+
+
+.dashboard-logo h2 {
+
+    margin: 0;
+
+    font-size: 19px;
+
+}
+
+
+.dashboard-logo span {
+
+    color: #FFD700;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.dashboard-menu {
+
+    padding: 25px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+.dashboard-menu button,
+.sidebar-bottom button {
+
+    border: none;
+
+    background: transparent;
+
+    color: #dce8f5;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: .25s;
+
+}
+
+
+.dashboard-menu button span,
+.sidebar-bottom button span {
+
+    font-size: 18px;
+
+}
+
+
+.dashboard-menu button b {
+
+    margin-left: auto;
+
+    background: rgba(255,255,255,.15);
+
+    padding: 3px 8px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+}
+
+
+.dashboard-menu button:hover {
+
+    background: rgba(255,255,255,.08);
+
+    color: white;
+
+}
+
+
+.dashboard-menu button.active {
+
+    background: #FFD700;
+
+    color: #003366;
+
+    font-weight: 700;
+
+}
+
+
+.dashboard-menu button.active b {
+
+    background: #003366;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+========================================================= */
+
+.sidebar-bottom {
+
+    margin-top: auto;
+
+    padding: 15px;
+
+    border-top:
+        1px solid rgba(255,255,255,.12);
+
+}
+
+
+.sidebar-bottom button {
+
+    width: 100%;
+
+}
+
+
+.sidebar-bottom button:hover {
+
+    background: rgba(255,255,255,.1);
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.admin-main {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.admin-topbar {
+
+    min-height: 85px;
+
+    background: white;
+
+    border-bottom: 1px solid #e7ebf0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px 35px;
+
+    box-sizing: border-box;
+
+}
+
+
+.admin-topbar h1 {
+
+    margin: 0;
+
+    color: #003366;
+
+    font-size: 26px;
+
+}
+
+
+.admin-topbar p {
+
+    margin: 5px 0 0;
+
+    color: #7a869a;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.admin-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.profile-avatar {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #003366;
+
+    color: #FFD700;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-weight: 800;
+
+}
+
+
+.admin-profile strong,
+.admin-profile span {
+
+    display: block;
+
+}
+
+
+.admin-profile strong {
+
+    font-size: 13px;
+
+    color: #003366;
+
+}
+
+
+.admin-profile span {
+
+    font-size: 11px;
+
+    color: #888;
+
+    margin-top: 3px;
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.dashboard-content {
+
+    padding: 30px 35px;
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.dashboard-stat {
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 23px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+
+    border-left: 4px solid #003366;
+
+}
+
+
+.dashboard-stat span {
+
+    display: block;
+
+    color: #7b8798;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.dashboard-stat strong {
+
+    color: #003366;
+
+    font-size: 30px;
+
+}
+
+
+.dashboard-stat.yellow {
+
+    border-left-color: #FFD700;
+
+}
+
+
+.dashboard-stat.green {
+
+    border-left-color: #16a34a;
+
+}
+
+
+.dashboard-stat.purple {
+
+    border-left-color: #7c3aed;
+
+}
+
+
+.stat-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 12px;
+
+    background: #eef4fa;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 22px;
+
+}
+
+
+/* =========================================================
+   COURSE SUMMARY
+========================================================= */
+
+.course-summary {
+
+    background: white;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+
+}
+
+
+.summary-header h2 {
+
+    margin: 0;
+
+    color: #003366;
+
+    font-size: 20px;
+
+}
+
+
+.summary-header p {
+
+    margin: 5px 0 20px;
+
+    color: #888;
+
+    font-size: 13px;
+
+}
+
+
+.course-summary-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.course-summary-grid > div {
+
+    background: #f5f7fb;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.course-summary-grid span {
+
+    color: #667085;
+
+    font-size: 14px;
+
+}
+
+
+.course-summary-grid strong {
+
+    color: #003366;
+
+    font-size: 24px;
+
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.dashboard-table-card {
+
+    background: white;
+
+    margin-top: 25px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+
+    overflow: hidden;
+
+}
+
+
+.full-card {
+
+    margin-top: 0;
+
+}
+
+
+.table-header {
+
+    padding: 22px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-bottom: 1px solid #edf0f4;
+
+}
+
+
+.table-header h2 {
+
+    margin: 0;
+
+    color: #003366;
+
+    font-size: 19px;
+
+}
+
+
+.table-header p {
+
+    margin: 5px 0 0;
+
+    color: #888;
+
+    font-size: 12px;
+
+}
+
+
+.table-header button {
+
+    border: none;
+
+    background: #003366;
+
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 750px;
+
+}
+
+
+th {
+
+    text-align: left;
+
+    background: #f8fafc;
+
+    color: #667085;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    padding: 14px 18px;
+
+}
+
+
+td {
+
+    padding: 16px 18px;
+
+    border-top: 1px solid #edf0f4;
+
+    color: #475467;
+
+    font-size: 13px;
+
+}
+
+
+td strong {
+
+    display: block;
+
+    color: #003366;
+
+    font-size: 13px;
+
+}
+
+
+td small {
+
+    display: block;
+
+    color: #888;
+
+    margin-top: 4px;
+
+}
+
+
+.course-badge {
+
+    display: inline-block;
+
+    background: #eef5ff;
+
+    color: #003366;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+.message-cell {
+
+    max-width: 280px;
+
+    line-height: 20px;
+
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+.delete-btn {
+
+    width: 34px;
+
+    height: 34px;
+
+    border: none;
+
+    background: #fff0f0;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.delete-btn:hover {
+
+    background: #ffe0e0;
+
+    transform: scale(1.05);
+
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty-state {
+
+    min-height: 220px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #999;
+
+}
+
+
+.empty-state span {
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.empty-state p {
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.dashboard-loading {
+
+    padding: 60px;
+
+    text-align: center;
+
+    color: #777;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu {
+
+    display: none;
+
+    border: none;
+
+    background: #003366;
+
+    color: white;
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 8px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .stats-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .admin-sidebar {
+
+        position: fixed;
+
+        left: -270px;
+
+        top: 0;
+
+        transition: .3s;
+
+        box-shadow:
+            5px 0 25px rgba(0,0,0,.2);
+
+    }
+
+
+    .admin-sidebar.sidebar-open {
+
+        left: 0;
+
+    }
+
+
+    .admin-topbar {
+
+        padding: 15px 18px;
+
+        gap: 12px;
+
+    }
+
+
+    .mobile-menu {
+
+        display: block;
+
+        flex-shrink: 0;
+
+    }
+
+
+    .admin-topbar h1 {
+
+        font-size: 21px;
+
+    }
+
+
+    .admin-profile > div:not(.profile-avatar) {
+
+        display: none;
+
+    }
+
+
+    .dashboard-content {
+
+        padding: 20px 15px;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+
+    }
+
+
+    .course-summary-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .table-header {
+
+        padding: 18px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .table-header button {
+
+        font-size: 11px;
+
+        white-space: nowrap;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .admin-topbar h1 {
+
+        font-size: 19px;
+
+    }
+
+
+    .admin-topbar p {
+
+        font-size: 11px;
+
+    }
+
+
+    .dashboard-stat {
+
+        padding: 18px;
+
+    }
+
+
+    .dashboard-stat strong {
+
+        font-size: 26px;
+
+    }
+
+}

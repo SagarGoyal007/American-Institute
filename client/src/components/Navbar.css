@@ -1,0 +1,1022 @@
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    width: 100%;
+    height: 105px;
+
+    background: linear-gradient(
+        135deg,
+        #002b57,
+        #003f78,
+        #004b8d
+    );
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 42px;
+
+    box-sizing: border-box;
+
+    position: relative;
+    z-index: 1000;
+
+    border-bottom: 2px solid
+        rgba(255, 215, 0, 0.35);
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    text-decoration: none;
+
+    flex-shrink: 0;
+
+    min-width: 0;
+}
+
+
+.main-logo {
+    width: 190px;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    filter:
+        drop-shadow(
+            0 2px 3px
+            rgba(0, 0, 0, 0.25)
+        );
+}
+
+
+/* =========================================================
+   BRAND NAME
+========================================================= */
+
+.brand-name {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+.brand-name h1 {
+    color: #ffffff;
+
+    font-size: 26px;
+
+    line-height: 30px;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.brand-name span {
+    color: #FFD700;
+
+    font-size: 12px;
+
+    line-height: 15px;
+
+    margin-top: 3px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ANNIVERSARY LOGO
+========================================================= */
+
+.years-logo {
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+
+    display: block;
+
+    flex-shrink: 0;
+
+    margin-left: -5px;
+
+    filter:
+        drop-shadow(
+            0 3px 5px
+            rgba(0, 0, 0, 0.30)
+        );
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav-links {
+    margin: 0 0 0 auto;
+
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   NORMAL LINKS
+========================================================= */
+
+.nav-links > li:not(.login-menu) > a {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 46px;
+
+    padding: 0 14px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+}
+
+
+.nav-links > li:not(.login-menu) > a:hover {
+    color: #FFD700;
+
+    background:
+        rgba(255, 215, 0, 0.10);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   LINK UNDERLINE
+========================================================= */
+
+.nav-links > li:not(.login-menu) > a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 14px;
+    right: 14px;
+
+    bottom: 3px;
+
+    height: 3px;
+
+    background: #FFD700;
+
+    border-radius: 5px;
+
+    transform: scaleX(0);
+
+    transition: 0.3s ease;
+}
+
+
+.nav-links > li:not(.login-menu) > a:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   LOGIN MENU
+========================================================= */
+
+.login-menu {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-button {
+    height: 46px;
+
+    padding: 0 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    font-family: inherit;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+
+.login-button:hover,
+.login-button.login-active {
+    color: #FFD700;
+
+    background:
+        rgba(255, 215, 0, 0.10);
+}
+
+
+.login-lock {
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   LOGIN ARROW
+========================================================= */
+
+.login-arrow {
+    font-size: 14px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.login-arrow.rotate {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   LOGIN DROPDOWN
+========================================================= */
+
+.login-dropdown {
+    position: absolute;
+
+    top: calc(100% + 12px);
+
+    right: 0;
+
+    width: 290px;
+
+    padding: 8px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.22);
+
+    z-index: 5000;
+
+    animation:
+        loginDrop 0.22s ease;
+}
+
+
+@keyframes loginDrop {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-8px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   LOGIN OPTIONS
+========================================================= */
+
+.login-option {
+    width: 100%;
+
+    min-height: 66px;
+
+    padding: 10px 12px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #003366;
+
+    transition: 0.25s ease;
+}
+
+
+/* Remove navbar underline */
+
+.login-option::after {
+    display: none !important;
+
+    content: none !important;
+}
+
+
+.login-option:hover {
+    background: #f1f6fb;
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   LOGIN OPTION ICON
+========================================================= */
+
+.login-option-icon {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    border-radius: 10px;
+
+    background: #fff7c7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   LOGIN OPTION TEXT
+========================================================= */
+
+.login-option-text {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    min-width: 0;
+}
+
+
+.login-option-text strong {
+    color: #003366;
+
+    font-size: 14px;
+
+    line-height: 18px;
+
+    font-weight: 700;
+}
+
+
+.login-option-text small {
+    color: #777777;
+
+    font-size: 11px;
+
+    line-height: 15px;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.login-option + .login-option {
+    border-top:
+        1px solid #eeeeee;
+
+    border-top-left-radius: 0;
+
+    border-top-right-radius: 0;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 7px;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+}
+
+
+.menu-toggle span {
+    width: 27px;
+    height: 3px;
+
+    background: #FFD700;
+
+    border-radius: 5px;
+
+    transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   HAMBURGER ACTIVE
+========================================================= */
+
+.menu-toggle.active span:nth-child(1) {
+    transform:
+        translateY(8px)
+        rotate(45deg);
+}
+
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.menu-toggle.active span:nth-child(3) {
+    transform:
+        translateY(-8px)
+        rotate(-45deg);
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1400px) {
+
+    .navbar {
+        padding: 0 28px;
+    }
+
+
+    .main-logo {
+        width: 175px;
+    }
+
+
+    .brand-name h1 {
+        font-size: 23px;
+
+        line-height: 27px;
+    }
+
+
+    .years-logo {
+        width: 90px;
+
+        height: 90px;
+    }
+
+
+    .nav-links {
+        gap: 5px;
+    }
+
+
+    .nav-links > li:not(.login-menu) > a,
+    .login-button {
+        font-size: 16px;
+
+        padding-left: 9px;
+
+        padding-right: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        height: 95px;
+
+        padding: 0 18px;
+    }
+
+
+    .main-logo {
+        width: 145px;
+    }
+
+
+    .brand-name h1 {
+        font-size: 19px;
+
+        line-height: 22px;
+    }
+
+
+    .brand-name span {
+        font-size: 9px;
+    }
+
+
+    .years-logo {
+        width: 75px;
+
+        height: 75px;
+    }
+
+
+    .nav-links {
+        gap: 2px;
+    }
+
+
+    .nav-links > li:not(.login-menu) > a,
+    .login-button {
+        font-size: 14px;
+
+        padding-left: 6px;
+
+        padding-right: 6px;
+    }
+
+
+    .login-dropdown {
+        width: 270px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        height: 82px;
+
+        padding: 5px 12px;
+
+        justify-content: space-between;
+    }
+
+
+    /* ================= BRAND ================= */
+
+    .brand {
+        gap: 6px;
+
+        max-width:
+            calc(100% - 55px);
+
+        overflow: hidden;
+    }
+
+
+    .main-logo {
+        width: 75px;
+    }
+
+
+    .brand-name {
+        min-width: 0;
+
+        overflow: hidden;
+    }
+
+
+    .brand-name h1 {
+        font-size: 15px;
+
+        line-height: 17px;
+
+        white-space: normal;
+    }
+
+
+    .brand-name span {
+        font-size: 7px;
+
+        line-height: 9px;
+
+        margin-top: 1px;
+    }
+
+
+    .years-logo {
+        width: 55px;
+
+        height: 60px;
+    }
+
+
+    /* ================= HAMBURGER ================= */
+
+    .menu-toggle {
+        display: flex;
+
+        z-index: 5001;
+    }
+
+
+    /* ================= NAVIGATION ================= */
+
+    .nav-links {
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+
+        width: 100%;
+
+        margin: 0;
+
+        padding: 8px 0 15px;
+
+        background: #003366;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        box-shadow:
+            0 8px 20px
+            rgba(0, 0, 0, 0.25);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform:
+            translateY(-10px);
+
+        transition: 0.3s ease;
+    }
+
+
+    .nav-links.open {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform:
+            translateY(0);
+    }
+
+
+    .nav-links li {
+        width: 100%;
+    }
+
+
+    /* ================= NORMAL LINKS ================= */
+
+    .nav-links > li:not(.login-menu) > a {
+        width: 100%;
+
+        height: auto;
+
+        box-sizing: border-box;
+
+        padding: 14px 20px;
+
+        justify-content: center;
+
+        font-size: 18px;
+
+        border-radius: 0;
+    }
+
+
+    .nav-links > li:not(.login-menu) > a::after {
+        display: none;
+    }
+
+
+    .nav-links > li:not(.login-menu) > a:hover {
+        background:
+            rgba(255, 215, 0, 0.10);
+
+        transform: none;
+    }
+
+
+    /* =====================================================
+       LOGIN MOBILE
+    ===================================================== */
+
+    .login-menu {
+        width: 100%;
+
+        display: block;
+    }
+
+
+    .login-button {
+        width: 100%;
+
+        min-height: 50px;
+
+        height: auto;
+
+        padding: 14px 20px;
+
+        border-radius: 0;
+
+        justify-content: center;
+
+        font-size: 18px;
+    }
+
+
+    /* =====================================================
+       MOBILE DROPDOWN
+    ===================================================== */
+
+    .login-dropdown {
+        position: relative;
+
+        top: auto;
+
+        right: auto;
+
+        width:
+            calc(100% - 30px);
+
+        margin:
+            0 auto 8px;
+
+        padding: 5px;
+
+        border-radius: 10px;
+
+        box-shadow:
+            0 5px 18px
+            rgba(0, 0, 0, 0.20);
+    }
+
+
+    .login-option {
+        min-height: 58px;
+
+        padding: 9px 10px;
+
+        gap: 10px;
+    }
+
+
+    .login-option-icon {
+        width: 38px;
+
+        height: 38px;
+
+        min-width: 38px;
+
+        font-size: 18px;
+    }
+
+
+    .login-option-text strong {
+        font-size: 13px;
+    }
+
+
+    .login-option-text small {
+        font-size: 10px;
+
+        line-height: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .navbar {
+        height: 76px;
+
+        padding:
+            4px 8px;
+    }
+
+
+    .main-logo {
+        width: 62px;
+    }
+
+
+    .brand-name h1 {
+        font-size: 13px;
+
+        line-height: 15px;
+    }
+
+
+    .brand-name span {
+        font-size: 6px;
+
+        line-height: 8px;
+    }
+
+
+    .years-logo {
+        width: 48px;
+
+        height: 52px;
+    }
+
+
+    .login-button {
+        font-size: 17px;
+    }
+
+
+    .login-dropdown {
+        width:
+            calc(100% - 24px);
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .main-logo {
+        width: 55px;
+    }
+
+
+    .brand-name h1 {
+        font-size: 12px;
+
+        line-height: 14px;
+    }
+
+
+    .years-logo {
+        width: 43px;
+
+        height: 47px;
+    }
+
+
+    .menu-toggle {
+        width: 40px;
+
+        height: 40px;
+    }
+
+
+    .menu-toggle span {
+        width: 25px;
+    }
+
+}

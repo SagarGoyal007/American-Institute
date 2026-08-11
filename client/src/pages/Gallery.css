@@ -1,0 +1,429 @@
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery {
+    padding: 80px 8%;
+    background: #f5f7fb;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.gallery h1 {
+    text-align: center;
+    font-size: 55px;
+    color: #003366;
+    margin: 0;
+}
+
+.gallery h1::after {
+    content: "";
+    width: 90px;
+    height: 4px;
+    background: #FFD700;
+    display: block;
+    margin: 18px auto;
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.gallery > p {
+    text-align: center;
+    max-width: 850px;
+    margin: 25px auto 60px;
+    color: #666;
+    line-height: 34px;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   DESKTOP GALLERY GRID
+========================================================= */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+/* =========================================================
+   GALLERY CARD
+========================================================= */
+
+.gallery-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .15);
+
+    background: white;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.gallery-card img {
+    width: 100%;
+    height: 280px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: .5s;
+}
+
+
+/* =========================================================
+   DESKTOP HOVER
+========================================================= */
+
+.gallery-card:hover img {
+    transform: scale(1.12);
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.overlay {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    padding: 18px;
+
+    box-sizing: border-box;
+
+    background: rgba(0, 51, 102, .85);
+
+    color: white;
+
+    transform: translateY(100%);
+
+    transition: .4s;
+}
+
+.gallery-card:hover .overlay {
+    transform: translateY(0);
+}
+
+.overlay h3 {
+    text-align: center;
+    margin: 0;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   MOBILE SWIPE HINT
+========================================================= */
+
+.mobile-gallery-hint {
+    display: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE SLIDER
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .gallery {
+        padding: 60px 0 70px;
+        overflow: hidden;
+    }
+
+
+    /* ================= TITLE ================= */
+
+    .gallery h1 {
+        font-size: 40px;
+        padding: 0 20px;
+    }
+
+
+    /* ================= DESCRIPTION ================= */
+
+    .gallery > p {
+        font-size: 17px;
+
+        line-height: 29px;
+
+        margin:
+            20px auto 35px;
+
+        padding:
+            0 25px;
+    }
+
+
+    /* =====================================================
+       HORIZONTAL MOBILE SLIDER
+    ===================================================== */
+
+    .gallery-grid {
+
+        display: flex;
+
+        flex-direction: row;
+
+        gap: 18px;
+
+        overflow-x: auto;
+
+        overflow-y: hidden;
+
+        padding:
+            10px 20px 25px;
+
+        scroll-snap-type: x mandatory;
+
+        scroll-behavior: smooth;
+
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: none;
+    }
+
+
+    /* Hide scrollbar */
+
+    .gallery-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /* =====================================================
+       MOBILE CARD
+    ===================================================== */
+
+    .gallery-card {
+
+        flex:
+            0 0 88%;
+
+        width: 88%;
+
+        min-width: 88%;
+
+        height: 330px;
+
+        scroll-snap-align: center;
+
+        border-radius: 18px;
+
+        box-shadow:
+            0 10px 25px rgba(0, 0, 0, .15);
+    }
+
+
+    /* =====================================================
+       MOBILE IMAGE
+    ===================================================== */
+
+    .gallery-card img {
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+        transform: none !important;
+    }
+
+
+    /* =====================================================
+       MOBILE OVERLAY
+       
+       Mobile par hover nahi hota,
+       isliye title permanently visible rahega.
+    ===================================================== */
+
+    .overlay {
+
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        padding: 18px 15px;
+
+        background:
+            linear-gradient(
+                transparent,
+                rgba(0, 51, 102, .95)
+            );
+
+        transform: translateY(0);
+
+        transition: none;
+    }
+
+
+    .overlay h3 {
+
+        font-size: 18px;
+
+        margin: 0;
+
+        text-align: center;
+    }
+
+
+    /* =====================================================
+       SWIPE HINT
+    ===================================================== */
+
+    .mobile-gallery-hint {
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 12px;
+
+        color: #003366;
+
+        font-size: 14px;
+
+        font-weight: 600;
+
+        margin-top: 5px;
+    }
+
+
+    .mobile-gallery-hint span {
+
+        color: #FFD700;
+
+        background: #003366;
+
+        width: 25px;
+
+        height: 25px;
+
+        border-radius: 50%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .gallery {
+        padding-top: 50px;
+    }
+
+
+    .gallery h1 {
+        font-size: 34px;
+    }
+
+
+    .gallery > p {
+
+        font-size: 16px;
+
+        line-height: 27px;
+
+        padding: 0 20px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .gallery-grid {
+
+        gap: 15px;
+
+        padding:
+            8px 15px 22px;
+    }
+
+
+    .gallery-card {
+
+        flex:
+            0 0 90%;
+
+        width: 90%;
+
+        min-width: 90%;
+
+        height: 300px;
+
+        border-radius: 15px;
+    }
+
+
+    .overlay {
+
+        padding: 15px 12px;
+    }
+
+
+    .overlay h3 {
+
+        font-size: 16px;
+    }
+
+
+    .mobile-gallery-hint {
+
+        font-size: 13px;
+
+        gap: 8px;
+    }
+
+}
