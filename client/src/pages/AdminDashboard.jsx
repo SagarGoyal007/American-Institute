@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import "./AdminDashboard.css";
 
-
 function AdminDashboard() {
 
     const navigate = useNavigate();
@@ -18,6 +17,7 @@ function AdminDashboard() {
 
     const [enrollments, setEnrollments] = useState([]);
     const [contacts, setContacts] = useState([]);
+    const [students, setStudents] = useState([]);
 
     const [activePage, setActivePage] =
         useState("dashboard");
@@ -25,7 +25,36 @@ function AdminDashboard() {
     const [loading, setLoading] =
         useState(true);
 
+    const [studentLoading, setStudentLoading] =
+        useState(false);
+
     const [sidebarOpen, setSidebarOpen] =
+        useState(false);
+
+    // =====================================================
+    // STUDENT DETAILS MODAL
+    // =====================================================
+
+    const [selectedStudent, setSelectedStudent] =
+        useState(null);
+
+    // =====================================================
+    // EDIT STUDENT
+    // =====================================================
+
+    const [editingStudent, setEditingStudent] =
+        useState(null);
+
+    const [editStudentForm, setEditStudentForm] =
+        useState({
+            name: "",
+            email: "",
+            phone: "",
+            course: "",
+            adminRemark: "",
+        });
+
+    const [editStudentLoading, setEditStudentLoading] =
         useState(false);
 
 
@@ -66,12 +95,9 @@ function AdminDashboard() {
 
             setLoading(true);
 
-
             const headers = {
-
                 Authorization:
                     `Bearer ${token}`,
-
             };
 
 
@@ -112,6 +138,17 @@ function AdminDashboard() {
                 );
 
 
+            if (
+                enrollmentResponse.status === 401
+            ) {
+
+                logout();
+
+                return;
+
+            }
+
+
             const enrollmentResult =
                 await enrollmentResponse.json();
 
@@ -127,8 +164,45 @@ function AdminDashboard() {
                 );
 
 
+            if (
+                contactResponse.status === 401
+            ) {
+
+                logout();
+
+                return;
+
+            }
+
+
             const contactResult =
                 await contactResponse.json();
+
+
+            // ================= STUDENTS =================
+
+            const studentResponse =
+                await fetch(
+                    "http://localhost:5000/api/admin/students",
+                    {
+                        headers,
+                    }
+                );
+
+
+            if (
+                studentResponse.status === 401
+            ) {
+
+                logout();
+
+                return;
+
+            }
+
+
+            const studentResult =
+                await studentResponse.json();
 
 
             // ================= SET DATA =================
@@ -155,6 +229,15 @@ function AdminDashboard() {
 
                 setContacts(
                     contactResult.data
+                );
+
+            }
+
+
+            if (studentResult.success) {
+
+                setStudents(
+                    studentResult.data
                 );
 
             }
@@ -242,7 +325,8 @@ function AdminDashboard() {
 
             setEnrollments(
                 enrollments.filter(
-                    item => item._id !== id
+                    item =>
+                        item._id !== id
                 )
             );
 
@@ -323,7 +407,8 @@ function AdminDashboard() {
 
             setContacts(
                 contacts.filter(
-                    item => item._id !== id
+                    item =>
+                        item._id !== id
                 )
             );
 
@@ -347,6 +432,233 @@ function AdminDashboard() {
                 error.message ||
                 "Could not delete message."
             );
+
+        }
+
+    };
+
+
+    // =====================================================
+    // APPROVE STUDENT
+    // =====================================================
+
+    const approveStudent = async (id) => {
+
+        const confirmApprove =
+            window.confirm(
+                "Are you sure you want to approve this student?"
+            );
+
+
+        if (!confirmApprove) {
+
+            return;
+
+        }
+
+
+        try {
+
+            setStudentLoading(true);
+
+
+            const response =
+                await fetch(
+                    `http://localhost:5000/api/admin/students/${id}/approve`,
+                    {
+                        method: "PUT",
+
+                        headers: {
+                            Authorization:
+                                `Bearer ${token}`,
+
+                            "Content-Type":
+                                "application/json",
+                        },
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    "Could not approve student."
+                );
+
+            }
+
+
+            setStudents(prev =>
+                prev.map(student =>
+
+                    student._id === id
+
+                        ? {
+                            ...student,
+
+                            enrollmentStatus:
+                                "approved",
+
+                            adminRemark:
+                                result.student?.adminRemark ||
+                                "",
+                        }
+
+                        : student
+
+                )
+            );
+
+
+            alert(
+                "Student approved successfully."
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Approve Student Error:",
+                error
+            );
+
+
+            alert(
+                error.message ||
+                "Could not approve student."
+            );
+
+
+        } finally {
+
+            setStudentLoading(false);
+
+        }
+
+    };
+
+
+    // =====================================================
+    // REJECT STUDENT
+    // =====================================================
+
+    const rejectStudent = async (id) => {
+
+        const remark =
+            window.prompt(
+                "Enter reason for rejecting this student:"
+            );
+
+
+        if (remark === null) {
+
+            return;
+
+        }
+
+
+        if (!remark.trim()) {
+
+            alert(
+                "Please enter a rejection reason."
+            );
+
+            return;
+
+        }
+
+
+        try {
+
+            setStudentLoading(true);
+
+
+            const response =
+                await fetch(
+                    `http://localhost:5000/api/admin/students/${id}/reject`,
+                    {
+                        method: "PUT",
+
+                        headers: {
+                            Authorization:
+                                `Bearer ${token}`,
+
+                            "Content-Type":
+                                "application/json",
+                        },
+
+                        body: JSON.stringify({
+
+                            adminRemark:
+                                remark.trim(),
+
+                        }),
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    "Could not reject student."
+                );
+
+            }
+
+
+            setStudents(prev =>
+                prev.map(student =>
+
+                    student._id === id
+
+                        ? {
+                            ...student,
+
+                            enrollmentStatus:
+                                "rejected",
+
+                            adminRemark:
+                                remark.trim(),
+                        }
+
+                        : student
+
+                )
+            );
+
+
+            alert(
+                "Student rejected successfully."
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Reject Student Error:",
+                error
+            );
+
+
+            alert(
+                error.message ||
+                "Could not reject student."
+            );
+
+
+        } finally {
+
+            setStudentLoading(false);
 
         }
 
@@ -391,6 +703,132 @@ function AdminDashboard() {
 
     };
 
+
+    // =====================================================
+    // PENDING STUDENT COUNT
+    // =====================================================
+
+    const pendingStudents =
+        students.filter(
+            student =>
+                student.enrollmentStatus ===
+                "pending"
+        ).length;
+
+
+    // =====================================================
+    // STUDENT DETAILS MODAL
+    // =====================================================
+
+    const openStudentDetails = (student) => {
+        setSelectedStudent(student);
+    };
+
+    const closeStudentDetails = () => {
+        setSelectedStudent(null);
+        setEditingStudent(null);
+    };
+
+    const openEditStudent = (student) => {
+        setEditingStudent(student);
+        setEditStudentForm({
+            name: student.name || "",
+            email: student.email || "",
+            phone: student.phone || "",
+            course: student.course || "",
+            adminRemark: student.adminRemark || "",
+        });
+    };
+
+    const closeEditStudent = () => {
+        if (editStudentLoading) return;
+        setEditingStudent(null);
+    };
+
+    const handleEditStudentChange = (e) => {
+        const { name, value } = e.target;
+        setEditStudentForm(prev => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    const saveEditedStudent = async (e) => {
+        e.preventDefault();
+
+        if (!editingStudent) return;
+
+        if (
+            !editStudentForm.name.trim() ||
+            !editStudentForm.email.trim() ||
+            !editStudentForm.phone.trim() ||
+            !editStudentForm.course.trim()
+        ) {
+            alert("Name, email, phone and course are required.");
+            return;
+        }
+
+        try {
+            setEditStudentLoading(true);
+
+            const response = await fetch(
+                `http://localhost:5000/api/admin/students/${editingStudent._id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name: editStudentForm.name.trim(),
+                        email: editStudentForm.email.trim().toLowerCase(),
+                        phone: editStudentForm.phone.trim(),
+                        course: editStudentForm.course.trim(),
+                        adminRemark: editStudentForm.adminRemark.trim(),
+                    }),
+                }
+            );
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(
+                    result.message || "Could not update student."
+                );
+            }
+
+            const updatedStudent = result.student || {
+                ...editingStudent,
+                ...editStudentForm,
+            };
+
+            setStudents(prev =>
+                prev.map(student =>
+                    student._id === editingStudent._id
+                        ? { ...student, ...updatedStudent, _id: student._id }
+                        : student
+                )
+            );
+
+            setSelectedStudent(prev =>
+                prev
+                    ? { ...prev, ...updatedStudent, _id: prev._id }
+                    : prev
+            );
+
+            setEditingStudent(null);
+            alert("Student updated successfully.");
+        } catch (error) {
+            console.error("Edit Student Error:", error);
+            alert(error.message || "Could not update student.");
+        } finally {
+            setEditStudentLoading(false);
+        }
+    };
+
+    // =====================================================
+    // RETURN
+    // =====================================================
 
     return (
 
@@ -440,12 +878,15 @@ function AdminDashboard() {
                 <nav className="dashboard-menu">
 
 
+                    {/* ================= DASHBOARD ================= */}
+
                     <button
                         className={
                             activePage === "dashboard"
                                 ? "active"
                                 : ""
                         }
+
                         onClick={() =>
                             changePage(
                                 "dashboard"
@@ -462,12 +903,15 @@ function AdminDashboard() {
                     </button>
 
 
+                    {/* ================= ENROLLMENTS ================= */}
+
                     <button
                         className={
                             activePage === "enrollments"
                                 ? "active"
                                 : ""
                         }
+
                         onClick={() =>
                             changePage(
                                 "enrollments"
@@ -482,11 +926,50 @@ function AdminDashboard() {
                         Enrollments
 
                         <b>
-                            {stats.totalEnrollments}
+                            {
+                                stats.totalEnrollments
+                            }
                         </b>
 
                     </button>
 
+
+                    {/* ================= STUDENT REQUESTS ================= */}
+
+                    <button
+                        className={
+                            activePage === "students"
+                                ? "active"
+                                : ""
+                        }
+
+                        onClick={() =>
+                            changePage(
+                                "students"
+                            )
+                        }
+                    >
+
+                        <span>
+                            👨‍🎓
+                        </span>
+
+                        Student Requests
+
+                        {pendingStudents > 0 && (
+
+                            <b>
+                                {
+                                    pendingStudents
+                                }
+                            </b>
+
+                        )}
+
+                    </button>
+
+
+                    {/* ================= MESSAGES ================= */}
 
                     <button
                         className={
@@ -494,6 +977,7 @@ function AdminDashboard() {
                                 ? "active"
                                 : ""
                         }
+
                         onClick={() =>
                             changePage(
                                 "contacts"
@@ -508,7 +992,9 @@ function AdminDashboard() {
                         Messages
 
                         <b>
-                            {stats.totalContacts}
+                            {
+                                stats.totalContacts
+                            }
                         </b>
 
                     </button>
@@ -535,6 +1021,7 @@ function AdminDashboard() {
 
                 </div>
 
+
             </aside>
 
 
@@ -554,13 +1041,16 @@ function AdminDashboard() {
 
                     <button
                         className="mobile-menu"
+
                         onClick={() =>
                             setSidebarOpen(
                                 !sidebarOpen
                             )
                         }
                     >
+
                         ☰
+
                     </button>
 
 
@@ -568,14 +1058,27 @@ function AdminDashboard() {
 
                         <h1>
 
-                            {activePage === "dashboard"
-                                ? "Dashboard"
-                                : activePage === "enrollments"
-                                    ? "Enrollments"
-                                    : "Contact Messages"
+                            {
+                                activePage ===
+                                    "dashboard"
+
+                                    ? "Dashboard"
+
+                                    : activePage ===
+                                        "enrollments"
+
+                                        ? "Enrollments"
+
+                                        : activePage ===
+                                            "students"
+
+                                            ? "Student Requests"
+
+                                            : "Contact Messages"
                             }
 
                         </h1>
+
 
                         <p>
                             Welcome back, Admin 👋
@@ -603,6 +1106,7 @@ function AdminDashboard() {
                         </div>
 
                     </div>
+
 
                 </header>
 
@@ -637,7 +1141,9 @@ function AdminDashboard() {
                                         </span>
 
                                         <strong>
-                                            {stats.totalEnrollments}
+                                            {
+                                                stats.totalEnrollments
+                                            }
                                         </strong>
 
                                     </div>
@@ -658,7 +1164,9 @@ function AdminDashboard() {
                                         </span>
 
                                         <strong>
-                                            {stats.totalContacts}
+                                            {
+                                                stats.totalContacts
+                                            }
                                         </strong>
 
                                     </div>
@@ -679,7 +1187,9 @@ function AdminDashboard() {
                                         </span>
 
                                         <strong>
-                                            {stats.ielts}
+                                            {
+                                                stats.ielts
+                                            }
                                         </strong>
 
                                     </div>
@@ -700,7 +1210,9 @@ function AdminDashboard() {
                                         </span>
 
                                         <strong>
-                                            {stats.pte}
+                                            {
+                                                stats.pte
+                                            }
                                         </strong>
 
                                     </div>
@@ -718,6 +1230,7 @@ function AdminDashboard() {
                             {/* ================= COURSE STATS ================= */}
 
                             <div className="course-summary">
+
 
                                 <div className="summary-header">
 
@@ -746,7 +1259,9 @@ function AdminDashboard() {
                                         </span>
 
                                         <strong>
-                                            {stats.ielts}
+                                            {
+                                                stats.ielts
+                                            }
                                         </strong>
 
                                     </div>
@@ -759,7 +1274,9 @@ function AdminDashboard() {
                                         </span>
 
                                         <strong>
-                                            {stats.pte}
+                                            {
+                                                stats.pte
+                                            }
                                         </strong>
 
                                     </div>
@@ -772,7 +1289,9 @@ function AdminDashboard() {
                                         </span>
 
                                         <strong>
-                                            {stats.spokenEnglish}
+                                            {
+                                                stats.spokenEnglish
+                                            }
                                         </strong>
 
                                     </div>
@@ -786,6 +1305,7 @@ function AdminDashboard() {
                             {/* ================= RECENT ENROLLMENTS ================= */}
 
                             <div className="dashboard-table-card">
+
 
                                 <div className="table-header">
 
@@ -895,15 +1415,19 @@ function AdminDashboard() {
 
                                                                 </td>
 
+
                                                                 <td>
 
                                                                     <span className="course-badge">
+
                                                                         {
                                                                             item.course
                                                                         }
+
                                                                     </span>
 
                                                                 </td>
+
 
                                                                 <td>
                                                                     {
@@ -911,12 +1435,15 @@ function AdminDashboard() {
                                                                     }
                                                                 </td>
 
+
                                                                 <td>
+
                                                                     {
                                                                         formatDate(
                                                                             item.createdAt
                                                                         )
                                                                     }
+
                                                                 </td>
 
                                                             </tr>
@@ -934,6 +1461,7 @@ function AdminDashboard() {
 
                             </div>
 
+
                         </>
 
                     )}
@@ -946,6 +1474,7 @@ function AdminDashboard() {
                     {activePage === "enrollments" && (
 
                         <div className="dashboard-table-card full-card">
+
 
                             <div className="table-header">
 
@@ -1063,9 +1592,11 @@ function AdminDashboard() {
                                                         <td>
 
                                                             <span className="course-badge">
+
                                                                 {
                                                                     item.course
                                                                 }
+
                                                             </span>
 
                                                         </td>
@@ -1086,11 +1617,13 @@ function AdminDashboard() {
 
 
                                                         <td>
+
                                                             {
                                                                 formatDate(
                                                                     item.createdAt
                                                                 )
                                                             }
+
                                                         </td>
 
 
@@ -1098,6 +1631,7 @@ function AdminDashboard() {
 
                                                             <button
                                                                 className="delete-btn"
+
                                                                 onClick={() =>
                                                                     deleteEnrollment(
                                                                         item._id
@@ -1108,6 +1642,308 @@ function AdminDashboard() {
                                                             </button>
 
                                                         </td>
+
+
+                                                    </tr>
+
+                                                )
+                                            )}
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            )}
+
+                        </div>
+
+                    )}
+
+
+                    {/* =================================================
+                        STUDENT REQUESTS
+                    ================================================= */}
+
+                    {activePage === "students" && (
+
+                        <div className="dashboard-table-card full-card">
+
+
+                            <div className="table-header">
+
+                                <div>
+
+                                    <h2>
+                                        Student Requests
+                                    </h2>
+
+                                    <p>
+                                        Review and manage student registration requests
+                                    </p>
+
+                                </div>
+
+
+                                <div className="student-request-count">
+
+                                    {
+                                        pendingStudents
+                                    }
+
+                                    {" "}Pending
+
+                                </div>
+
+                            </div>
+
+
+                            {students.length === 0 ? (
+
+                                <div className="empty-state">
+
+                                    <span>
+                                        👨‍🎓
+                                    </span>
+
+                                    <p>
+                                        No student requests found.
+                                    </p>
+
+                                </div>
+
+                            ) : (
+
+                                <div className="table-wrapper">
+
+                                    <table>
+
+                                        <thead>
+
+                                            <tr>
+
+                                                <th>
+                                                    Student
+                                                </th>
+
+                                                <th>
+                                                    Contact
+                                                </th>
+
+                                                <th>
+                                                    Course
+                                                </th>
+
+                                                <th>
+                                                    Status
+                                                </th>
+
+                                                <th>
+                                                    Date
+                                                </th>
+
+                                                <th>
+                                                    Action
+                                                </th>
+
+                                            </tr>
+
+                                        </thead>
+
+
+                                        <tbody>
+
+                                            {students.map(
+                                                student => (
+
+                                                    <tr
+                                                        key={
+                                                            student._id
+                                                        }
+                                                    >
+
+
+                                                        {/* STUDENT */}
+
+                                                        <td>
+
+                                                            <strong>
+                                                                {
+                                                                    student.name
+                                                                }
+                                                            </strong>
+
+                                                        </td>
+
+
+                                                        {/* CONTACT */}
+
+                                                        <td>
+
+                                                            <small>
+                                                                {
+                                                                    student.phone
+                                                                }
+                                                            </small>
+
+                                                            <small>
+                                                                {
+                                                                    student.email
+                                                                }
+                                                            </small>
+
+                                                        </td>
+
+
+                                                        {/* COURSE */}
+
+                                                        <td>
+
+                                                            <span className="course-badge">
+
+                                                                {
+                                                                    student.course
+                                                                }
+
+                                                            </span>
+
+                                                        </td>
+
+
+                                                        {/* STATUS */}
+
+                                                        <td>
+
+                                                            <span
+                                                                className={
+                                                                    `student-status ${
+                                                                        student.enrollmentStatus
+                                                                    }`
+                                                                }
+                                                            >
+
+                                                                {
+                                                                    student.enrollmentStatus
+                                                                }
+
+                                                            </span>
+
+
+                                                            {student.adminRemark && (
+
+                                                                <small className="admin-remark">
+
+                                                                    {
+                                                                        student.adminRemark
+                                                                    }
+
+                                                                </small>
+
+                                                            )}
+
+                                                        </td>
+
+
+                                                        {/* DATE */}
+
+                                                        <td>
+
+                                                            {
+                                                                formatDate(
+                                                                    student.createdAt
+                                                                )
+                                                            }
+
+                                                        </td>
+
+
+                                                        {/* ACTION */}
+
+                                                        <td>
+
+                                                            <div className="student-actions">
+
+                                                                <button
+                                                                    type="button"
+                                                                    className="student-details-btn"
+                                                                    onClick={() =>
+                                                                        openStudentDetails(student)
+                                                                    }
+                                                                >
+                                                                    <span className="action-icon">◉</span>
+                                                                    <span>View Details</span>
+                                                                </button>
+
+                                                            {student.enrollmentStatus ===
+                                                                "pending" ? (
+
+                                                                <div className="student-decision-actions">
+
+
+                                                                    <button
+                                                                        className="approve-btn"
+
+                                                                        onClick={() =>
+                                                                            approveStudent(
+                                                                                student._id
+                                                                            )
+                                                                        }
+
+                                                                        disabled={
+                                                                            studentLoading
+                                                                        }
+                                                                    >
+
+                                                                        <span className="action-icon">✓</span>
+                                                                        <span>Approve</span>
+
+                                                                    </button>
+
+
+                                                                    <button
+                                                                        className="reject-btn"
+
+                                                                        onClick={() =>
+                                                                            rejectStudent(
+                                                                                student._id
+                                                                            )
+                                                                        }
+
+                                                                        disabled={
+                                                                            studentLoading
+                                                                        }
+                                                                    >
+
+                                                                        <span className="action-icon">×</span>
+                                                                        <span>Reject</span>
+
+                                                                    </button>
+
+
+                                                                </div>
+
+                                                            ) : (
+
+                                                                <span className="action-completed">
+
+                                                                    {
+                                                                        student.enrollmentStatus ===
+                                                                            "approved"
+
+                                                                            ? "✓ Approved"
+
+                                                                            : "✕ Rejected"
+                                                                    }
+
+                                                                </span>
+
+                                                            )}
+
+                                                            </div>
+
+                                                        </td>
+
 
                                                     </tr>
 
@@ -1134,6 +1970,7 @@ function AdminDashboard() {
                     {activePage === "contacts" && (
 
                         <div className="dashboard-table-card full-card">
+
 
                             <div className="table-header">
 
@@ -1250,11 +2087,13 @@ function AdminDashboard() {
 
 
                                                         <td>
+
                                                             {
                                                                 formatDate(
                                                                     item.createdAt
                                                                 )
                                                             }
+
                                                         </td>
 
 
@@ -1262,6 +2101,7 @@ function AdminDashboard() {
 
                                                             <button
                                                                 className="delete-btn"
+
                                                                 onClick={() =>
                                                                     deleteContact(
                                                                         item._id
@@ -1272,6 +2112,7 @@ function AdminDashboard() {
                                                             </button>
 
                                                         </td>
+
 
                                                     </tr>
 
@@ -1290,7 +2131,332 @@ function AdminDashboard() {
 
                     )}
 
+
                 </div>
+
+
+                    {/* =================================================
+                        EDIT STUDENT MODAL
+                    ================================================= */}
+
+                    {editingStudent && (
+
+                        <div
+                            className="student-edit-overlay"
+                            onClick={closeEditStudent}
+                        >
+                            <div
+                                className="student-edit-modal"
+                                onClick={(event) => event.stopPropagation()}
+                            >
+                                <div className="student-edit-header">
+                                    <div>
+                                        <span className="student-details-eyebrow">
+                                            Student Management
+                                        </span>
+                                        <h2>Edit Student</h2>
+                                        <p>
+                                            Update the student's registration information
+                                        </p>
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        className="student-details-close"
+                                        onClick={closeEditStudent}
+                                        disabled={editStudentLoading}
+                                        aria-label="Close edit student"
+                                    >
+                                        ×
+                                    </button>
+                                </div>
+
+                                <form
+                                    className="student-edit-form"
+                                    onSubmit={saveEditedStudent}
+                                >
+                                    <div className="student-edit-grid">
+
+                                        <div className="student-edit-field">
+                                            <label htmlFor="edit-student-name">
+                                                Full Name
+                                            </label>
+                                            <input
+                                                id="edit-student-name"
+                                                name="name"
+                                                type="text"
+                                                value={editStudentForm.name}
+                                                onChange={handleEditStudentChange}
+                                                placeholder="Enter full name"
+                                                autoComplete="name"
+                                                required
+                                            />
+                                        </div>
+
+                                        <div className="student-edit-field">
+                                            <label htmlFor="edit-student-email">
+                                                Email Address
+                                            </label>
+                                            <input
+                                                id="edit-student-email"
+                                                name="email"
+                                                type="email"
+                                                value={editStudentForm.email}
+                                                onChange={handleEditStudentChange}
+                                                placeholder="Enter email address"
+                                                autoComplete="email"
+                                                required
+                                            />
+                                        </div>
+
+                                        <div className="student-edit-field">
+                                            <label htmlFor="edit-student-phone">
+                                                Phone Number
+                                            </label>
+                                            <input
+                                                id="edit-student-phone"
+                                                name="phone"
+                                                type="tel"
+                                                value={editStudentForm.phone}
+                                                onChange={handleEditStudentChange}
+                                                placeholder="Enter phone number"
+                                                autoComplete="tel"
+                                                required
+                                            />
+                                        </div>
+
+                                        <div className="student-edit-field">
+                                            <label htmlFor="edit-student-course">
+                                                Course
+                                            </label>
+                                            <select
+                                                id="edit-student-course"
+                                                name="course"
+                                                value={editStudentForm.course}
+                                                onChange={handleEditStudentChange}
+                                                required
+                                            >
+                                                <option value="">Select course</option>
+                                                <option value="IELTS">IELTS</option>
+                                                <option value="PTE">PTE</option>
+                                                <option value="Spoken English">Spoken English</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div className="student-edit-field student-edit-remark-field">
+                                        <label htmlFor="edit-student-remark">
+                                            Admin Remark
+                                        </label>
+                                        <textarea
+                                            id="edit-student-remark"
+                                            name="adminRemark"
+                                            value={editStudentForm.adminRemark}
+                                            onChange={handleEditStudentChange}
+                                            placeholder="Add an admin remark (optional)"
+                                            rows="4"
+                                        />
+                                    </div>
+
+                                    <div className="student-edit-footer">
+                                        <button
+                                            type="button"
+                                            className="student-edit-cancel"
+                                            onClick={closeEditStudent}
+                                            disabled={editStudentLoading}
+                                        >
+                                            Cancel
+                                        </button>
+
+                                        <button
+                                            type="submit"
+                                            className="student-edit-save"
+                                            disabled={editStudentLoading}
+                                        >
+                                            {editStudentLoading ? (
+                                                <>
+                                                    <span className="student-edit-spinner"></span>
+                                                    Saving...
+                                                </>
+                                            ) : (
+                                                <>✓ Save Changes</>
+                                            )}
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* =================================================
+                        STUDENT DETAILS MODAL
+                    ================================================= */}
+
+                    {selectedStudent && (
+
+                        <div
+                            className="student-details-overlay"
+                            onClick={closeStudentDetails}
+                        >
+
+                            <div
+                                className="student-details-modal"
+                                onClick={(event) => event.stopPropagation()}
+                            >
+
+                                <div className="student-details-header">
+
+                                    <div>
+                                        <span className="student-details-eyebrow">
+                                            Student Profile
+                                        </span>
+
+                                        <h2>
+                                            Student Details
+                                        </h2>
+
+                                        <p>
+                                            Complete registration information
+                                        </p>
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        className="student-details-close"
+                                        onClick={closeStudentDetails}
+                                        aria-label="Close student details"
+                                    >
+                                        ×
+                                    </button>
+
+                                </div>
+
+                                <div className="student-details-profile">
+
+                                    <div className="student-details-avatar">
+                                        {
+                                            selectedStudent.name
+                                                ?.charAt(0)
+                                                ?.toUpperCase() || "S"
+                                        }
+                                    </div>
+
+                                    <div>
+                                        <h3>
+                                            {selectedStudent.name || "-"}
+                                        </h3>
+
+                                        <span>
+                                            {selectedStudent.email || "-"}
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div className="student-details-grid">
+
+                                    <div className="student-detail-item">
+                                        <small>Full Name</small>
+                                        <strong>
+                                            {selectedStudent.name || "-"}
+                                        </strong>
+                                    </div>
+
+                                    <div className="student-detail-item">
+                                        <small>Email Address</small>
+                                        <strong>
+                                            {selectedStudent.email || "-"}
+                                        </strong>
+                                    </div>
+
+                                    <div className="student-detail-item">
+                                        <small>Phone Number</small>
+                                        <strong>
+                                            {selectedStudent.phone || "-"}
+                                        </strong>
+                                    </div>
+
+                                    <div className="student-detail-item">
+                                        <small>Course</small>
+                                        <strong>
+                                            {selectedStudent.course || "-"}
+                                        </strong>
+                                    </div>
+
+                                    <div className="student-detail-item">
+                                        <small>Registration Date</small>
+                                        <strong>
+                                            {formatDate(selectedStudent.createdAt)}
+                                        </strong>
+                                    </div>
+
+                                    <div className="student-detail-item">
+                                        <small>Role</small>
+                                        <strong>
+                                            {selectedStudent.role || "student"}
+                                        </strong>
+                                    </div>
+
+                                </div>
+
+                                <div className="student-detail-status-box">
+                                    <small>
+                                        Enrollment Status
+                                    </small>
+
+                                    <span
+                                        className={
+                                            `student-status ${
+                                                selectedStudent.enrollmentStatus ||
+                                                "pending"
+                                            }`
+                                        }
+                                    >
+                                        {
+                                            selectedStudent.enrollmentStatus ||
+                                            "pending"
+                                        }
+                                    </span>
+                                </div>
+
+                                <div className="student-detail-remark">
+                                    <small>
+                                        Admin Remark
+                                    </small>
+
+                                    <p>
+                                        {
+                                            selectedStudent.adminRemark ||
+                                            "No admin remark added."
+                                        }
+                                    </p>
+                                </div>
+
+                                <div className="student-details-footer">
+
+                                    <button
+                                        type="button"
+                                        className="student-edit-btn"
+                                        onClick={() => openEditStudent(selectedStudent)}
+                                    >
+                                        ✎ Edit Student
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        onClick={closeStudentDetails}
+                                    >
+                                        Close
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    )}
 
             </main>
 

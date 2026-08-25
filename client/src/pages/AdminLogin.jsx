@@ -3,36 +3,27 @@ import { useNavigate } from "react-router-dom";
 import "./AdminLogin.css";
 
 function AdminLogin() {
-
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
 
-
     const handleLogin = async (e) => {
-
         e.preventDefault();
-
         setError("");
         setLoading(true);
 
-
         try {
-
             const response = await fetch(
                 "http://localhost:5000/api/admin/login",
                 {
                     method: "POST",
-
                     headers: {
                         "Content-Type": "application/json",
                     },
-
                     body: JSON.stringify({
                         email,
                         password,
@@ -40,65 +31,43 @@ function AdminLogin() {
                 }
             );
 
-
             const result = await response.json();
 
-
             if (!response.ok) {
-
                 throw new Error(
-                    result.message ||
-                    "Invalid email or password."
+                    result.message || "Invalid email or password."
                 );
-
             }
 
-
             // ================= SAVE TOKEN =================
-
             localStorage.setItem(
                 "adminToken",
                 result.token
             );
 
-
             // ================= DASHBOARD =================
-
             navigate("/admin/dashboard");
 
-
         } catch (error) {
-
-            console.error(
-                "Admin Login Error:",
-                error
-            );
+            console.error("Admin Login Error:", error);
 
             setError(
                 error.message ||
                 "Login failed. Please try again."
             );
-
         } finally {
-
             setLoading(false);
-
         }
-
     };
 
-
     return (
-
         <div className="admin-login-page">
-
 
             {/* =================================================
                 LOGIN CARD
             ================================================= */}
 
             <div className="admin-login-card">
-
 
                 {/* ================= LOGO ================= */}
 
@@ -118,7 +87,6 @@ function AdminLogin() {
 
                 </div>
 
-
                 {/* ================= TITLE ================= */}
 
                 <div className="admin-login-heading">
@@ -133,11 +101,9 @@ function AdminLogin() {
 
                 </div>
 
-
                 {/* ================= ERROR ================= */}
 
                 {error && (
-
                     <div className="admin-error">
 
                         <span>
@@ -149,9 +115,7 @@ function AdminLogin() {
                         </p>
 
                     </div>
-
                 )}
-
 
                 {/* ================= FORM ================= */}
 
@@ -159,7 +123,6 @@ function AdminLogin() {
                     className="admin-login-form"
                     onSubmit={handleLogin}
                 >
-
 
                     {/* ================= EMAIL ================= */}
 
@@ -189,7 +152,6 @@ function AdminLogin() {
                         </div>
 
                     </div>
-
 
                     {/* ================= PASSWORD ================= */}
 
@@ -224,9 +186,7 @@ function AdminLogin() {
                                 type="button"
                                 className="password-toggle"
                                 onClick={() =>
-                                    setShowPassword(
-                                        !showPassword
-                                    )
+                                    setShowPassword(!showPassword)
                                 }
                                 aria-label={
                                     showPassword
@@ -244,7 +204,6 @@ function AdminLogin() {
 
                     </div>
 
-
                     {/* ================= LOGIN BUTTON ================= */}
 
                     <button
@@ -254,38 +213,43 @@ function AdminLogin() {
                     >
 
                         {loading ? (
-
                             <>
                                 <span className="login-spinner"></span>
-
                                 Signing In...
                             </>
-
                         ) : (
-
                             <>
                                 Sign In
                                 <span>→</span>
                             </>
-
                         )}
 
                     </button>
 
                 </form>
 
+                {/* ================= BACK TO HOME ================= */}
+
+                <div className="admin-back-home">
+
+                    <button
+                        type="button"
+                        onClick={() => navigate("/")}
+                    >
+                        ← Back to Home
+                    </button>
+
+                </div>
 
                 {/* ================= SECURITY ================= */}
 
                 <div className="admin-security">
 
-                 
                     <p>
                         Secure Admin Access
                     </p>
 
                 </div>
-
 
                 {/* ================= FOOTER ================= */}
 
@@ -299,10 +263,7 @@ function AdminLogin() {
             </div>
 
         </div>
-
     );
-
 }
-
 
 export default AdminLogin;

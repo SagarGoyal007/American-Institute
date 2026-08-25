@@ -1,0 +1,1007 @@
+/* =====================================================
+   STUDENT DASHBOARD
+===================================================== */
+
+.student-dashboard {
+    min-height: calc(100vh - 100px);
+    background: #f4f8fc;
+    color: #173b5c;
+}
+
+
+/* =====================================================
+   DASHBOARD HEADER
+===================================================== */
+
+.student-dashboard-header {
+    background:
+        linear-gradient(
+            135deg,
+            #064578,
+            #0871b9
+        );
+
+    color: #ffffff;
+    padding: 55px 25px;
+}
+
+.dashboard-header-content {
+    max-width: 1180px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.dashboard-badge {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border: 1px solid
+        rgba(255,255,255,0.35);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.09);
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 17px;
+}
+
+.dashboard-header-content h1 {
+    margin: 0 0 10px;
+
+    font-size: 36px;
+    line-height: 1.2;
+
+    font-weight: 700;
+}
+
+.dashboard-header-content p {
+    margin: 0;
+
+    max-width: 620px;
+
+    color: #e1f1fc;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   LOGOUT BUTTON
+===================================================== */
+
+.student-logout-button {
+    flex-shrink: 0;
+
+    min-width: 105px;
+    height: 43px;
+
+    padding: 0 20px;
+
+    border: 1px solid
+        rgba(255,255,255,0.35);
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.student-logout-button:hover {
+    background: #ffffff;
+    color: #064578;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.student-dashboard-content {
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 40px 25px 65px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.student-dashboard-error {
+    max-width: 1180px;
+
+    margin: 25px auto 0;
+
+    padding: 13px 16px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ffc5c5;
+    border-radius: 9px;
+
+    background: #fff1f1;
+
+    color: #c62828;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   STATUS CARD
+===================================================== */
+
+.student-status-card {
+    width: 100%;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 28px
+        rgba(0,48,96,0.08);
+
+    border-left: 5px solid;
+
+    margin-bottom: 25px;
+}
+
+.status-pending {
+    border-left-color: #e5a900;
+}
+
+.status-approved {
+    border-left-color: #299447;
+}
+
+.status-rejected {
+    border-left-color: #d33b3b;
+}
+
+
+/* =====================================================
+   STATUS ICON
+===================================================== */
+
+.status-icon {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.student-status-card.status-pending
+.status-icon {
+    background: #fff7dc;
+    color: #c58c00;
+}
+
+.student-status-card.status-approved
+.status-icon {
+    background: #eaf8ee;
+    color: #27833f;
+}
+
+.student-status-card.status-rejected
+.status-icon {
+    background: #fff0f0;
+    color: #c83232;
+}
+
+
+/* =====================================================
+   STATUS CONTENT
+===================================================== */
+
+.status-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #7a8793;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+.status-content h2 {
+    margin: 0 0 5px;
+
+    font-size: 23px;
+
+    color: #173b5c;
+}
+
+.status-content p {
+    margin: 0;
+
+    color: #6f7e8b;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   DASHBOARD GRID
+===================================================== */
+
+.student-dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   GENERAL CARD
+===================================================== */
+
+.student-dashboard-card {
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 27px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 8px 28px
+        rgba(0,48,96,0.07);
+
+    border: 1px solid #edf1f5;
+}
+
+
+/* =====================================================
+   CARD HEADING
+===================================================== */
+
+.card-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+.card-heading-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background: #edf6fd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+.card-heading h2 {
+    margin: 0 0 4px;
+
+    color: #064578;
+
+    font-size: 19px;
+}
+
+.card-heading p {
+    margin: 0;
+
+    color: #89949f;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   STUDENT INFORMATION
+===================================================== */
+
+.student-info-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.student-info-row {
+    min-height: 51px;
+
+    padding: 12px 0;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom: 1px solid #edf1f5;
+}
+
+.student-info-row:first-child {
+    padding-top: 0;
+}
+
+.student-info-row:last-child {
+    border-bottom: none;
+
+    padding-bottom: 0;
+}
+
+.student-info-row span {
+    color: #7d8994;
+
+    font-size: 12px;
+}
+
+.student-info-row strong {
+    color: #254761;
+
+    font-size: 13px;
+
+    text-align: right;
+
+    word-break: break-word;
+}
+
+
+/* =====================================================
+   COURSE DISPLAY
+===================================================== */
+
+.course-display {
+    min-height: 155px;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f2f8fd,
+            #f8fbfe
+        );
+
+    border: 1px solid #e4edf5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.course-display > span {
+    color: #7c8a96;
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+}
+
+.course-display h3 {
+    margin: 0 0 15px;
+
+    color: #064578;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   COURSE STATUS
+===================================================== */
+
+.course-status {
+    width: fit-content;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.course-status.status-pending {
+    background: #fff5d5;
+    color: #a77600;
+
+    border: none;
+}
+
+.course-status.status-approved {
+    background: #e8f7ed;
+    color: #267d3d;
+
+    border: none;
+}
+
+.course-status.status-rejected {
+    background: #ffeded;
+    color: #c23333;
+
+    border: none;
+}
+
+
+/* =====================================================
+   ADMIN REMARK
+===================================================== */
+
+.admin-remark-card {
+    margin-bottom: 25px;
+}
+
+.admin-remark-box {
+    padding: 19px 20px;
+
+    border-radius: 11px;
+
+    background: #f7f9fb;
+
+    border: 1px solid #e5ebf0;
+}
+
+.admin-remark-box.status-pending {
+    background: #fffbef;
+
+    border: 1px solid #f2dfaa;
+}
+
+.admin-remark-box.status-approved {
+    background: #f1faf4;
+
+    border: 1px solid #c9e8d1;
+}
+
+.admin-remark-box.status-rejected {
+    background: #fff3f3;
+
+    border: 1px solid #f1cccc;
+}
+
+.remark-status {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+.admin-remark-box.status-pending
+.remark-status {
+    color: #a87900;
+}
+
+.admin-remark-box.status-approved
+.remark-status {
+    color: #278040;
+}
+
+.admin-remark-box.status-rejected
+.remark-status {
+    color: #c03333;
+}
+
+.admin-remark-box p {
+    margin: 0;
+
+    color: #596a78;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   ENROLLMENT INFORMATION
+===================================================== */
+
+.enrollment-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+}
+
+.enrollment-step {
+    position: relative;
+
+    display: flex;
+
+    gap: 15px;
+
+    padding-bottom: 25px;
+}
+
+.enrollment-step:last-child {
+    padding-bottom: 0;
+}
+
+.enrollment-step:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 16px;
+    top: 34px;
+
+    width: 2px;
+    height: calc(100% - 25px);
+
+    background: #dfe7ed;
+}
+
+.enrollment-step.completed:not(:last-child)::after {
+    background: #80bd93;
+}
+
+.enrollment-step.active:not(:last-child)::after {
+    background: #c9dce9;
+}
+
+
+/* =====================================================
+   STEP NUMBER
+===================================================== */
+
+.step-number {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #edf2f6;
+
+    color: #71808c;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.enrollment-step.completed
+.step-number {
+    background: #e8f7ed;
+
+    color: #278040;
+}
+
+.enrollment-step.active
+.step-number {
+    background: #edf6fd;
+
+    color: #0871b9;
+}
+
+.enrollment-step > div:last-child {
+    padding-top: 1px;
+}
+
+.enrollment-step strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #294b64;
+
+    font-size: 14px;
+}
+
+.enrollment-step p {
+    margin: 0;
+
+    color: #7c8994;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   QUICK ACTIONS
+===================================================== */
+
+.student-quick-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.student-action-button {
+    min-height: 43px;
+
+    padding: 0 19px;
+
+    box-sizing: border-box;
+
+    border-radius: 9px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.student-action-button.primary {
+    border: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            #064578,
+            #0871b9
+        );
+
+    color: #ffffff;
+}
+
+.student-action-button.primary:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(6,69,120,0.18);
+}
+
+.student-action-button.secondary {
+    border: 1px solid #d4dfe8;
+
+    background: #ffffff;
+
+    color: #315d7e;
+}
+
+.student-action-button.secondary:hover {
+    border-color: #0871b9;
+
+    color: #075da7;
+
+    background: #f7fbfe;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.student-dashboard-loading {
+    min-height: calc(100vh - 100px);
+
+    background: #f4f8fc;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-loader {
+    text-align: center;
+}
+
+.loader-circle {
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 15px;
+
+    border: 4px solid #dceaf4;
+
+    border-top-color: #0871b9;
+
+    border-radius: 50%;
+
+    animation:
+        dashboardSpin 0.8s
+        linear infinite;
+}
+
+.dashboard-loader p {
+    margin: 0;
+
+    color: #71808c;
+
+    font-size: 13px;
+}
+
+@keyframes dashboardSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .student-dashboard-header {
+        padding: 45px 20px;
+    }
+
+    .dashboard-header-content {
+        align-items: flex-start;
+    }
+
+    .dashboard-header-content h1 {
+        font-size: 31px;
+    }
+
+    .student-dashboard-content {
+        padding:
+            32px 20px 50px;
+    }
+
+    .student-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .student-dashboard-header {
+        padding: 35px 17px;
+    }
+
+    .dashboard-header-content {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 22px;
+    }
+
+    .dashboard-header-content h1 {
+        font-size: 27px;
+    }
+
+    .dashboard-header-content p {
+        font-size: 14px;
+    }
+
+    .student-logout-button {
+        width: 100%;
+    }
+
+    .student-dashboard-content {
+        padding:
+            25px 15px 45px;
+    }
+
+    .student-status-card {
+        padding: 20px;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .status-icon {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 12px;
+
+        font-size: 21px;
+    }
+
+    .status-content h2 {
+        font-size: 20px;
+    }
+
+    .status-content p {
+        font-size: 12px;
+    }
+
+    .student-dashboard-card {
+        padding: 21px;
+    }
+
+    .card-heading {
+        margin-bottom: 20px;
+    }
+
+    .card-heading h2 {
+        font-size: 17px;
+    }
+
+    .student-info-row {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .student-info-row strong {
+        text-align: left;
+    }
+
+    .course-display {
+        min-height: 135px;
+
+        padding: 18px;
+    }
+
+    .course-display h3 {
+        font-size: 21px;
+    }
+
+    .student-quick-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .student-action-button {
+        width: 100%;
+    }
+
+    .student-dashboard-error {
+        margin:
+            20px 15px 0;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .dashboard-header-content h1 {
+        font-size: 24px;
+    }
+
+    .student-status-card {
+        padding: 17px;
+    }
+
+    .status-icon {
+        width: 43px;
+        height: 43px;
+
+        font-size: 18px;
+    }
+
+    .status-content h2 {
+        font-size: 18px;
+    }
+
+    .student-dashboard-card {
+        padding: 18px;
+    }
+
+    .card-heading-icon {
+        width: 43px;
+        height: 43px;
+
+        font-size: 19px;
+    }
+
+    .enrollment-step {
+        gap: 11px;
+    }
+}

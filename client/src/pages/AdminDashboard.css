@@ -1025,3 +1025,1089 @@ td small {
     }
 
 }
+/* =========================================================
+   STUDENT DETAILS - MODAL ADDITION
+   Existing Admin Dashboard CSS is preserved above.
+========================================================= */
+
+/* Student action area */
+.student-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.student-details-btn {
+    appearance: none;
+    border: 1px solid #d7e2ee;
+    background: #ffffff;
+    color: #063f72;
+    min-height: 34px;
+    padding: 7px 12px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.student-details-btn:hover {
+    background: #eef6ff;
+    border-color: #0b66ad;
+    color: #064578;
+    transform: translateY(-1px);
+}
+
+.student-details-btn:active {
+    transform: translateY(0);
+}
+
+.student-details-btn:focus-visible {
+    outline: 3px solid rgba(11, 102, 173, 0.16);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.student-details-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: rgba(3, 24, 48, 0.58);
+    backdrop-filter: blur(3px);
+    animation: studentDetailsOverlayIn 0.18s ease-out;
+}
+
+@keyframes studentDetailsOverlayIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.student-details-modal {
+    width: min(720px, 100%);
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #e4ebf2;
+    border-radius: 18px;
+    box-shadow: 0 24px 70px rgba(0, 35, 70, 0.28);
+    animation: studentDetailsModalIn 0.2s ease-out;
+}
+
+@keyframes studentDetailsModalIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.student-details-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 26px 20px;
+    border-bottom: 1px solid #edf1f5;
+}
+
+.student-details-eyebrow {
+    display: block;
+    margin-bottom: 5px;
+    color: #0b66ad;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.student-details-header h2 {
+    margin: 0;
+    color: #063f72;
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.student-details-header p {
+    margin: 6px 0 0;
+    color: #7b8794;
+    font-size: 13px;
+}
+
+.student-details-close {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    border: 1px solid #dfe7ef;
+    border-radius: 9px;
+    background: #f8fafc;
+    color: #526579;
+    font-family: inherit;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.student-details-close:hover {
+    background: #eef4f9;
+    color: #063f72;
+}
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.student-details-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 22px 26px 18px;
+    padding: 16px;
+    border: 1px solid #e6edf4;
+    border-radius: 13px;
+    background: #f8fbfe;
+}
+
+.student-details-avatar {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #063f72;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.student-details-profile h3 {
+    margin: 0 0 4px;
+    color: #173b5c;
+    font-size: 18px;
+}
+
+.student-details-profile span {
+    color: #718096;
+    font-size: 13px;
+}
+
+/* =========================================================
+   DETAILS GRID
+========================================================= */
+
+.student-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0 26px;
+}
+
+.student-detail-item {
+    min-width: 0;
+    padding: 14px 15px;
+    border: 1px solid #e6edf4;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.student-detail-item small,
+.student-detail-status-box small,
+.student-detail-remark small {
+    display: block;
+    margin-bottom: 6px;
+    color: #7a8794;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+}
+
+.student-detail-item strong {
+    display: block;
+    overflow-wrap: anywhere;
+    color: #183b5c;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.student-detail-status-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 16px 26px 0;
+    padding: 14px 15px;
+    border: 1px solid #e6edf4;
+    border-radius: 10px;
+    background: #f8fbfe;
+}
+
+.student-detail-status-box small {
+    margin: 0;
+}
+
+.student-details-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 76px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.student-details-status.pending {
+    background: #fff6dc;
+    color: #9a6a00;
+}
+
+.student-details-status.approved {
+    background: #e8f8ee;
+    color: #16733b;
+}
+
+.student-details-status.rejected {
+    background: #fff0f0;
+    color: #b42323;
+}
+
+/* =========================================================
+   ADMIN REMARK
+========================================================= */
+
+.student-detail-remark {
+    margin: 12px 26px 0;
+    padding: 15px;
+    border: 1px solid #e6edf4;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.student-detail-remark p {
+    margin: 0;
+    color: #425466;
+    font-size: 13px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.student-details-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 26px 24px;
+}
+
+.student-details-footer button {
+    min-width: 90px;
+    height: 38px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 8px;
+    background: #063f72;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.student-details-footer button:hover {
+    background: #075da7;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   MOBILE MODAL
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .student-details-overlay {
+        align-items: flex-start;
+        padding: 14px;
+    }
+
+    .student-details-modal {
+        max-height: calc(100vh - 28px);
+        border-radius: 15px;
+    }
+
+    .student-details-header {
+        padding: 20px;
+    }
+
+    .student-details-profile {
+        margin: 18px 20px 15px;
+    }
+
+    .student-details-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .student-detail-status-box,
+    .student-detail-remark {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .student-details-footer {
+        padding: 18px 20px 20px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .student-details-header h2 {
+        font-size: 21px;
+    }
+
+    .student-details-profile {
+        padding: 13px;
+    }
+
+    .student-details-avatar {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+        font-size: 18px;
+    }
+
+    .student-actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* =========================================================
+   STUDENT REQUEST ACTION BUTTONS
+   Modern Approve / Reject / View Details UI
+========================================================= */
+
+.student-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.student-decision-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Common action button */
+.student-details-btn,
+.approve-btn,
+.reject-btn {
+    appearance: none;
+    -webkit-appearance: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 36px;
+    padding: 8px 13px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 17px;
+    height: 17px;
+
+    margin-right: 6px;
+
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* =========================================================
+   VIEW DETAILS
+========================================================= */
+
+.student-details-btn {
+    border: 1px solid #cdddec;
+    background: #ffffff;
+    color: #075da7;
+
+    box-shadow:
+        0 1px 2px rgba(0, 48, 96, 0.04);
+}
+
+.student-details-btn:hover {
+    background: #f1f7fd;
+    border-color: #8dbbe2;
+    color: #064578;
+
+    box-shadow:
+        0 4px 10px rgba(7, 93, 167, 0.10);
+
+    transform: translateY(-1px);
+}
+
+.student-details-btn:active {
+    transform: translateY(0);
+}
+
+/* =========================================================
+   APPROVE
+========================================================= */
+
+.approve-btn {
+    border: 1px solid #1fa463;
+    background: #1fa463;
+    color: #ffffff;
+
+    box-shadow:
+        0 3px 8px rgba(31, 164, 99, 0.18);
+}
+
+.approve-btn:hover {
+    background: #168b50;
+    border-color: #168b50;
+
+    box-shadow:
+        0 6px 14px rgba(31, 164, 99, 0.25);
+
+    transform: translateY(-1px);
+}
+
+.approve-btn:active {
+    background: #117642;
+    border-color: #117642;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   REJECT
+========================================================= */
+
+.reject-btn {
+    border: 1px solid #e24b4b;
+    background: #ffffff;
+    color: #c62828;
+
+    box-shadow:
+        0 1px 2px rgba(198, 40, 40, 0.05);
+}
+
+.reject-btn:hover {
+    background: #fff1f1;
+    border-color: #d93636;
+    color: #b42323;
+
+    box-shadow:
+        0 5px 12px rgba(198, 40, 40, 0.13);
+
+    transform: translateY(-1px);
+}
+
+.reject-btn:active {
+    background: #ffe5e5;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   COMPLETED STATUS
+========================================================= */
+
+.action-completed {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 34px;
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.action-completed.approved {
+    border: 1px solid #c5ebd5;
+    background: #eaf8ef;
+    color: #16733b;
+}
+
+.action-completed.rejected {
+    border: 1px solid #f3caca;
+    background: #fff0f0;
+    color: #b42323;
+}
+
+.action-completed .action-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.action-completed.approved .action-icon {
+    background: #20a35d;
+}
+
+.action-completed.rejected .action-icon {
+    background: #d93636;
+}
+
+/* =========================================================
+   DISABLED / LOADING
+========================================================= */
+
+.approve-btn:disabled,
+.reject-btn:disabled,
+.student-details-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.approve-btn:focus-visible,
+.reject-btn:focus-visible,
+.student-details-btn:focus-visible {
+    outline: 3px solid rgba(7, 93, 167, 0.16);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   STUDENT REQUEST TABLE ACTION CELL
+========================================================= */
+
+.dashboard-table-card table td:last-child {
+    min-width: 245px;
+}
+
+.dashboard-table-card table td:last-child .student-actions {
+    min-width: 225px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .student-actions {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .student-decision-actions {
+        width: 100%;
+    }
+
+    .student-details-btn,
+    .approve-btn,
+    .reject-btn {
+        min-height: 35px;
+        padding: 8px 12px;
+    }
+
+    .dashboard-table-card table td:last-child {
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .student-decision-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .student-details-btn,
+    .approve-btn,
+    .reject-btn {
+        width: 100%;
+    }
+
+    .action-completed {
+        min-height: 34px;
+    }
+}
+
+/* =========================================================
+   EDIT STUDENT
+========================================================= */
+
+.student-edit-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+    box-sizing: border-box;
+
+    background: rgba(3, 24, 48, 0.58);
+    backdrop-filter: blur(3px);
+}
+
+
+/* =========================================================
+   EDIT STUDENT MODAL
+========================================================= */
+
+.student-edit-modal {
+    width: min(720px, 100%);
+    max-height: calc(100vh - 48px);
+
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #e4ebf2;
+    border-radius: 18px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 35, 70, 0.28);
+}
+
+
+/* =========================================================
+   EDIT STUDENT HEADER
+========================================================= */
+
+.student-edit-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 24px 26px 20px;
+
+    border-bottom: 1px solid #edf1f5;
+}
+
+.student-edit-header h2 {
+    margin: 0;
+
+    color: #063f72;
+
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.student-edit-header p {
+    margin: 6px 0 0;
+
+    color: #7b8794;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   EDIT STUDENT FORM
+========================================================= */
+
+.student-edit-form {
+    padding: 22px 26px 26px;
+}
+
+
+/* =========================================================
+   EDIT STUDENT GRID
+========================================================= */
+
+.student-edit-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   EDIT STUDENT FIELD
+========================================================= */
+
+.student-edit-field {
+    min-width: 0;
+}
+
+.student-edit-field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #173b5c;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   INPUT / SELECT / TEXTAREA
+========================================================= */
+
+.student-edit-field input,
+.student-edit-field select,
+.student-edit-field textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d8e2ec;
+    border-radius: 9px;
+
+    background: #fbfcfe;
+
+    color: #183b5c;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* =========================================================
+   INPUT / SELECT
+========================================================= */
+
+.student-edit-field input,
+.student-edit-field select {
+    height: 44px;
+
+    padding: 0 12px;
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.student-edit-field textarea {
+    min-height: 100px;
+
+    padding: 11px 12px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+========================================================= */
+
+.student-edit-field input:focus,
+.student-edit-field select:focus,
+.student-edit-field textarea:focus {
+    border-color: #0b66ad;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(11, 102, 173, 0.09);
+}
+
+
+/* =========================================================
+   ADMIN REMARK
+========================================================= */
+
+.student-edit-remark-field {
+    margin-top: 15px;
+}
+
+
+/* =========================================================
+   EDIT FOOTER
+========================================================= */
+
+.student-edit-footer {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 22px;
+    padding-top: 18px;
+
+    border-top: 1px solid #edf1f5;
+}
+
+
+/* =========================================================
+   CANCEL / SAVE BUTTON
+========================================================= */
+
+.student-edit-cancel,
+.student-edit-save {
+    min-height: 40px;
+
+    padding: 0 16px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.student-edit-cancel {
+    border: 1px solid #d8e2ec;
+
+    background: #ffffff;
+
+    color: #526579;
+}
+
+.student-edit-cancel:hover {
+    background: #f5f8fb;
+
+    color: #173b5c;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+.student-edit-save {
+    border: 1px solid #075da7;
+
+    background: #075da7;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 10px rgba(7, 93, 167, 0.16);
+}
+
+.student-edit-save:hover {
+    background: #064f8e;
+
+    border-color: #064f8e;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 14px rgba(7, 93, 167, 0.22);
+}
+
+
+/* =========================================================
+   DISABLED BUTTONS
+========================================================= */
+
+.student-edit-cancel:disabled,
+.student-edit-save:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   EDIT BUTTON - STUDENT DETAILS
+========================================================= */
+
+.student-details-footer .student-edit-btn {
+    margin-right: auto;
+
+    min-width: 125px;
+    min-height: 38px;
+
+    border: 1px solid #cdddec;
+    border-radius: 8px;
+
+    background: #eef6ff;
+
+    color: #075da7;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.student-details-footer .student-edit-btn:hover {
+    background: #e2f0fc;
+
+    border-color: #9fc5e5;
+
+    color: #064578;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MOBILE - EDIT STUDENT
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .student-edit-overlay {
+        align-items: flex-start;
+
+        padding: 14px;
+    }
+
+    .student-edit-modal {
+        max-height: calc(100vh - 28px);
+
+        border-radius: 15px;
+    }
+
+    .student-edit-header {
+        padding: 20px;
+    }
+
+    .student-edit-form {
+        padding: 20px;
+    }
+
+    .student-edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .student-edit-footer {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .student-edit-cancel,
+    .student-edit-save {
+        width: 100%;
+    }
+
+    .student-details-footer {
+        flex-wrap: wrap;
+    }
+
+    .student-details-footer .student-edit-btn {
+        margin-right: 0;
+
+        flex: 1 1 100%;
+    }
+}

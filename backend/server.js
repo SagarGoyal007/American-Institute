@@ -5,14 +5,16 @@ require("dotenv").config();
 const connectDB = require("./config/db");
 
 const contactRoutes =
-    require("./routes/contactRoutes");
+  require("./routes/contactRoutes");
 
 const enrollmentRoutes =
-    require("./routes/enrollmentRoutes");
+  require("./routes/enrollmentRoutes");
 
 const adminRoutes =
-    require("./routes/adminRoutes");
+  require("./routes/adminRoutes");
 
+const studentRoutes =
+  require("./routes/studentRoutes");
 
 const app = express();
 
@@ -39,12 +41,10 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
 
-    res.json({
-
-        message:
-            "American Institute Backend is Running 🚀"
-
-    });
+  res.json({
+    message:
+      "American Institute Backend is Running 🚀"
+  });
 
 });
 
@@ -54,8 +54,8 @@ app.get("/", (req, res) => {
 // =====================================================
 
 app.use(
-    "/api/contact",
-    contactRoutes
+  "/api/contact",
+  contactRoutes
 );
 
 
@@ -64,8 +64,8 @@ app.use(
 // =====================================================
 
 app.use(
-    "/api/enrollment",
-    enrollmentRoutes
+  "/api/enrollment",
+  enrollmentRoutes
 );
 
 
@@ -74,8 +74,18 @@ app.use(
 // =====================================================
 
 app.use(
-    "/api/admin",
-    adminRoutes
+  "/api/admin",
+  adminRoutes
+);
+
+
+// =====================================================
+// STUDENT ROUTE
+// =====================================================
+
+app.use(
+  "/api/student",
+  studentRoutes
 );
 
 
@@ -84,13 +94,12 @@ app.use(
 // =====================================================
 
 const PORT =
-    process.env.PORT || 5000;
-
+  process.env.PORT || 5000;
 
 app.listen(PORT, () => {
 
-    console.log(
-        `Server running on http://localhost:${PORT}`
-    );
+  console.log(
+    `Server running on http://localhost:${PORT}`
+  );
 
 });

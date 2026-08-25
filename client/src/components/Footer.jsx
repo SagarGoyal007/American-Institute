@@ -269,13 +269,6 @@ function Footer() {
                         </span>
                     </p>
 
-                    <p>
-                        Founder:{" "}
-                        <span>
-                            Prateek Tiwari
-                        </span>
-                    </p>
-
                 </div>
 
             </div>

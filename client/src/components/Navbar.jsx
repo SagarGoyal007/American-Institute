@@ -276,8 +276,9 @@ function Navbar() {
               >
 
                 <span className="login-option-icon">
-                  
+                  👨🏻‍🎓
                 </span>
+                
 
 
                 <span className="login-option-text">
@@ -304,7 +305,7 @@ function Navbar() {
               >
 
                 <span className="login-option-icon">
-                  
+                  🖥️
                 </span>
 
 

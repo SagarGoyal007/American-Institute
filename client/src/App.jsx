@@ -5,8 +5,13 @@ import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import WhoWeAre from "./pages/WhoWeAre";
+
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+
+import StudentLogin from "./pages/StudentLogin";
+import StudentRegister from "./pages/StudentRegister";
+import StudentDashboard from "./pages/StudentDashboard";
 
 
 function App() {
@@ -64,11 +69,35 @@ function App() {
           element={<AdminLogin />}
         />
 
+
         {/* ================= ADMIN DASHBOARD ================= */}
 
         <Route
           path="/admin/dashboard"
           element={<AdminDashboard />}
+        />
+
+
+        {/* ================= STUDENT LOGIN ================= */}
+
+        <Route
+          path="/student-login"
+          element={<StudentLogin />}
+        />
+
+
+        {/* ================= STUDENT REGISTER ================= */}
+
+        <Route
+          path="/student-register"
+          element={<StudentRegister />}
+        />
+
+        {/* ================= STUDENT DASHBOARD ================= */}
+        
+        <Route
+          path="/student-dashboard"
+          element={<StudentDashboard />}
         />
 
       </Routes>
@@ -78,6 +107,5 @@ function App() {
   );
 
 }
-
 
 export default App;

@@ -1,0 +1,596 @@
+/* =====================================================
+   STUDENT LOGIN PAGE
+===================================================== */
+
+.student-login-page {
+  min-height: calc(100vh - 100px);
+  background: #f4f8fc;
+  padding: 70px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   MAIN WRAPPER
+===================================================== */
+
+.student-login-wrapper {
+  width: 100%;
+  max-width: 1050px;
+  min-height: 610px;
+
+  background: #ffffff;
+
+  border-radius: 24px;
+
+  display: grid;
+  grid-template-columns: 46% 54%;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 45px rgba(0, 48, 96, 0.12);
+}
+
+
+/* =====================================================
+   LEFT - STUDENT WELCOME
+===================================================== */
+
+.student-welcome {
+  background:
+    linear-gradient(
+      145deg,
+      #063b70,
+      #075ca8
+    );
+
+  color: white;
+
+  padding: 55px 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* =====================================================
+   BADGE
+===================================================== */
+
+.welcome-badge {
+  display: inline-block;
+
+  width: fit-content;
+
+  padding: 7px 14px;
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  border-radius: 20px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 28px;
+
+  background: rgba(255,255,255,0.08);
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.welcome-icon {
+  width: 70px;
+  height: 70px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 34px;
+
+  margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   WELCOME HEADING
+===================================================== */
+
+.student-welcome h1 {
+  font-size: 37px;
+
+  line-height: 1.2;
+
+  margin: 0 0 18px;
+
+  font-weight: 700;
+}
+
+.student-welcome h1 span {
+  display: block;
+
+  color: #ffd200;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.student-welcome > p {
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  color: #e8f3ff;
+
+  max-width: 420px;
+
+  margin: 0 0 35px;
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.student-features {
+  display: flex;
+  flex-direction: column;
+
+  gap: 19px;
+}
+
+
+/* =====================================================
+   FEATURE ITEM
+===================================================== */
+
+.student-feature {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.student-feature > span {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.14);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffd200;
+
+  font-size: 15px;
+
+  flex-shrink: 0;
+}
+
+.student-feature strong {
+  display: block;
+
+  font-size: 14px;
+
+  margin-bottom: 3px;
+}
+
+.student-feature small {
+  display: block;
+
+  font-size: 12px;
+
+  color: #cfe5fb;
+}
+
+
+/* =====================================================
+   RIGHT LOGIN SECTION
+===================================================== */
+
+.student-login-form-section {
+  padding: 55px 65px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: #ffffff;
+}
+
+
+/* =====================================================
+   FORM HEADER
+===================================================== */
+
+.student-form-header {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  margin-bottom: 30px;
+}
+
+.form-icon {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 14px;
+
+  background: #edf5fc;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25px;
+}
+
+.student-form-header h2 {
+  margin: 0 0 4px;
+
+  font-size: 28px;
+
+  color: #063b70;
+}
+
+.student-form-header p {
+  margin: 0;
+
+  font-size: 14px;
+
+  color: #7b8794;
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.student-login-error {
+  padding: 12px 15px;
+
+  border-radius: 8px;
+
+  background: #fff1f1;
+
+  border: 1px solid #ffc7c7;
+
+  color: #c62828;
+
+  font-size: 13px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.student-form-group {
+  margin-bottom: 21px;
+}
+
+.student-form-group label {
+  display: block;
+
+  color: #173b5c;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  margin-bottom: 8px;
+}
+
+
+/* =====================================================
+   INPUT WRAPPER
+===================================================== */
+
+.student-input-wrapper {
+  height: 53px;
+
+  border: 1px solid #d8e1ea;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  background: #ffffff;
+
+  transition: 0.2s ease;
+}
+
+.student-input-wrapper:focus-within {
+  border-color: #0b67b2;
+
+  box-shadow:
+    0 0 0 3px rgba(11,103,178,0.09);
+}
+
+
+/* =====================================================
+   INPUT ICON
+===================================================== */
+
+.input-icon {
+  width: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #47799f;
+
+  font-size: 16px;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.student-input-wrapper input {
+  flex: 1;
+
+  height: 100%;
+
+  border: none;
+
+  outline: none;
+
+  font-size: 14px;
+
+  color: #263746;
+
+  background: transparent;
+
+  padding: 0 8px;
+}
+
+.student-input-wrapper input::placeholder {
+  color: #a3adb7;
+}
+
+
+/* =====================================================
+   PASSWORD TOGGLE
+===================================================== */
+
+.password-toggle {
+  width: 45px;
+
+  height: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  opacity: 0.75;
+}
+
+.password-toggle:hover {
+  opacity: 1;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.student-login-button {
+  width: 100%;
+
+  height: 54px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #063b70,
+      #0869b7
+    );
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 7px;
+
+  transition: 0.2s ease;
+}
+
+.student-login-button span {
+  font-size: 18px;
+}
+
+.student-login-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(6,59,112,0.2);
+}
+
+.student-login-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =====================================================
+   REGISTER
+===================================================== */
+
+.student-register {
+  text-align: center;
+
+  margin-top: 25px;
+
+  font-size: 13px;
+
+  color: #737f8b;
+}
+
+.student-register a {
+  margin-left: 5px;
+
+  color: #075da7;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.student-register a:hover {
+  text-decoration: underline;
+}
+
+
+/* =====================================================
+   BACK HOME
+===================================================== */
+
+.student-back-home {
+  text-align: center;
+
+  margin-top: 18px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #315d7e;
+
+  text-decoration: none;
+}
+
+.student-back-home:hover {
+  color: #075da7;
+
+  text-decoration: underline;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+  .student-login-page {
+    padding: 45px 20px;
+  }
+
+  .student-login-wrapper {
+    grid-template-columns: 1fr;
+
+    max-width: 620px;
+  }
+
+  .student-welcome {
+    padding: 45px 40px;
+  }
+
+  .student-login-form-section {
+    padding: 45px 40px;
+  }
+
+  .student-welcome h1 {
+    font-size: 32px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+  .student-login-page {
+    padding: 25px 15px;
+  }
+
+  .student-login-wrapper {
+    border-radius: 18px;
+  }
+
+  .student-welcome {
+    padding: 35px 25px;
+  }
+
+  .welcome-icon {
+    width: 58px;
+    height: 58px;
+
+    font-size: 28px;
+  }
+
+  .student-welcome h1 {
+    font-size: 28px;
+  }
+
+  .student-welcome > p {
+    font-size: 14px;
+  }
+
+  .student-login-form-section {
+    padding: 35px 25px;
+  }
+
+  .student-form-header h2 {
+    font-size: 24px;
+  }
+
+  .student-input-wrapper {
+    height: 50px;
+  }
+
+  .student-login-button {
+    height: 51px;
+  }
+}
