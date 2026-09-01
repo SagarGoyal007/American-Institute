@@ -267,12 +267,8 @@ function Footer() {
                         <span>
                             SAP Innovation
                         </span>
-                        <span>
-                            Founder - Prateek Tiwari
-                        </span>
                     </p>
                     <p>
-                        Design by{" "}
                         <span>
                             Founder - Prateek Tiwari
                         </span>
